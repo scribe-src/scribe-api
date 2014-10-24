@@ -1,0 +1,11 @@
+{
+  "name": "scribe-docs",
+  "description": "Scribe Javascript API",
+  "version": "0.0.1",
+  "devDependencies": {
+    "codo": "2.0.9"
+  },
+  "scripts": {
+    "codo": "./node_modules/.bin/codo"
+  }
+}

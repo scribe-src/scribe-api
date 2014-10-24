@@ -1,0 +1,8 @@
+--name       "Scribe Javascript API"
+--readme     README.md
+--title      "Scribe Javascript API Documentation"
+--quiet
+--extension  coffee
+--output     ./doc
+./src
+-
