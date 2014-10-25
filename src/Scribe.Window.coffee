@@ -17,8 +17,8 @@ class Scribe.Window
 
   # The @currentWindow class method returns a reference to the Window
   # that is currently running the caller code. If the caller code is
-  # just a script running in the interpreter (e.g. the entrypoint script),
-  # null is returned.
+  # not associated with a Window (e.g. the entrypoint script), null is
+  # returned.
   #
   # @return [ScribeWindow, null] the Window containing the browser context
   #   that the caller code is running in, or null when the caller code
@@ -26,10 +26,17 @@ class Scribe.Window
   @currentWindow: ->
     notImplemented()
 
+  # Creates and returns a new instance of `Scribe.Window`
+  #
+  # @param opts [Object] the options for Scribe.Window's constructor
+  # @return [Scribe.Window] a new Window instance
+  @create: (opts={}) ->
+    new @(opts)
+
   # @property [Boolean] the Window covers the entire screen
   fullscreen: false
 
-  # @property [String] the title of the Window. If {titleBar} is true,
+  # @property [String] the title of the Window. If `titleBar` is true,
   #   this String will be displayed above the Window.
   title: null
 
@@ -96,7 +103,7 @@ class Scribe.Window
   center: ->
     notImplemented()
 
-  # Navigates the embedded browser to the specified {url}
+  # Navigates the embedded browser to the specified `url`
   #
   # @param [String] url the URL to navigate to. Relative URLs like
   #   'index.html' will be resolved from the project root.
