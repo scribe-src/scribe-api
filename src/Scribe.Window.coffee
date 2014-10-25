@@ -89,6 +89,11 @@ class Scribe.Window
   # @option opts [Number] opacity between 0 and 1
   # @option opts [Boolean] topmost
   constructor: (opts={}) ->
+    @_createWindow(opts)
+
+    for own key, val of opts
+      @[key] = val if @[key]?
+
     Scribe.Mixins.Triggerable.mixin(@)
 
   # Makes the Window visible
@@ -109,3 +114,34 @@ class Scribe.Window
   #   'index.html' will be resolved from the project root.
   navigateToURL: (url) ->
     notImplemented()
+
+
+# Reroute all the getter/setters from the magic properties defined
+# above so that we don't have to duplicate the Object.defineProperty
+# call on every platform.
+do ->
+
+  MAGIC_PROPERTIES = [
+    "fullscreen",
+    "title",
+    "closable",
+    "resizable",
+    "left",
+    "top",
+    "width",
+    "height",
+    "alpha",
+    "topmost",
+    "sameOriginPolicy"
+  ]
+
+  capitalize = (str) ->
+    str.charAt(0).toUpperCase() + str.substring(1)
+
+  MAGIC_PROPERTIES.forEach (prop) ->
+
+    # We reroute access so that obj.x = 1 calls obj._setX(1), and
+    # console.log(obj.x) calls obj._getX() 
+    Object.defineProperty Scribe.Window.prototype, prop, 
+      get: -> @["_get#{capitalize prop}"]()
+      set: (val) -> @["_set#{capitalize prop}"](val)
