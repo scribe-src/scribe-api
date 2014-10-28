@@ -16,7 +16,7 @@
 # @include Scribe.Mixins.Triggerable
 class Scribe.Window
 
-  # @property [Scribe.Window] the active window
+  # @property [Scribe.Window]
   #
   # A reference to the Window that is currently running the caller
   # code. If the caller code is not associated with a Window (e.g.
