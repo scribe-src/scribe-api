@@ -35,10 +35,12 @@ Scribe.Mixins.Triggerable =
   # @param [String] eventName the name of the event
   trigger: (eventName) ->
     eventName = eventName.toLowerCase()
-    cb() for cb in @_eventsHash[eventName]
+    cb() for cb in (@_eventsHash[eventName] || [])
 
-# Used for mixing this behavior into an instance
+# Used for mixing this behavior into an instance.
+# This is kept outside the main module definition to prevent
+# it from showing up as an inherited method in the docset.
 Scribe.Mixins.Triggerable.mixin = (context) ->
-    context._eventsHash = {}
-    context.on = @on
-    context.trigger = @trigger
+  context._eventsHash = {}
+  context.on = @on.bind(context)
+  context.trigger = @trigger.bind(context)

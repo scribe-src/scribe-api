@@ -7,6 +7,7 @@ init:
 
 clean:
 	rm -rf dist/
+	rm -rf docs
 
 build:
 	coffee -b -o dist/ -c src/
@@ -15,8 +16,9 @@ build:
 	uglifyjs --screw-ie8 -m --stats ./dist/*.js >> ./dist.js
 	rm -f ./dist/*
 	mv ./dist.js ./dist/
+	printf "\x00" >> ./dist/dist.js
 
 docs:
-	codo
+	./node_modules/.bin/codo
 
 dist: clean init build docs

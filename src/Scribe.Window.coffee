@@ -3,28 +3,26 @@
 # the embedded browser can access the Window instance through the
 # `Scribe.Window` global.
 #
-# @event open     The Window has been made visible
-# @event hide     The Window has been hidden
-# @event destroy  The Window has been destroyed
-# @event move     The Window has been moved
-# @event focus    The Window has been focused
-# @event resize   The Window has been resized
-# @event blur     The Window has been blurred
-# @event minimize The Window has been minimized
+# @event open       The Window has been made visible
+# @event hide       The Window has been hidden
+# @event destroy    The Window has been destroyed
+# @event move       The Window has been moved
+# @event focus      The Window has been focused
+# @event resize     The Window has been resized
+# @event blur       The Window has been blurred
+# @event minimize   The Window has been minimized
+# @event deminimize The Window has been de-minimized
 #
 # @include Scribe.Mixins.Triggerable
 class Scribe.Window
 
-  # The @currentWindow class method returns a reference to the Window
-  # that is currently running the caller code. If the caller code is
-  # not associated with a Window (e.g. the entrypoint script), null is
-  # returned.
+  # @property [Scribe.Window] the active window
   #
-  # @return [ScribeWindow, null] the Window containing the browser context
-  #   that the caller code is running in, or null when the caller code
-  #   is not running inside a Window.
-  @currentWindow: ->
-    notImplemented()
+  # A reference to the Window that is currently running the caller
+  # code. If the caller code is not associated with a Window (e.g.
+  # the entrypoint script), null is returned.
+  #
+  @current: null
 
   # Creates and returns a new instance of `Scribe.Window`
   #
@@ -45,6 +43,9 @@ class Scribe.Window
 
   # @property [Boolean] the Window can be resized by the user
   resizable: true
+
+  # @property [Boolean] the Window is currently visible on screen
+  visible: false
 
   # @property [Number] the offset (in pixels) from the left of the screen
   left: 0
@@ -67,10 +68,6 @@ class Scribe.Window
   # @property [Boolean] the embedded browser enforces Same Origin Policy
   sameOriginPolicy: true
 
-  # @property [Object] a reference to the native browser object. The
-  #   exact type and API of this object will be platform-dependent.
-  nativeBrowserObject: null
-
   # @property [Object] a reference to the native window object. The
   #   exact type and API of this object will be platform-dependent.
   nativeWindowObject: null
@@ -89,36 +86,49 @@ class Scribe.Window
   # @option opts [Number] opacity between 0 and 1
   # @option opts [Boolean] topmost
   constructor: (opts={}) ->
-    @_createWindow(opts)
-
-    for own key, val of opts
-      @[key] = val if @[key]?
-
     Scribe.Mixins.Triggerable.mixin(@)
+    if opts.nativeWindowObject?
+      @_nativeWindowObject = opts.nativeWindowObject
+    else
+      @_createWindow(opts)
 
-  # Makes the Window visible
+  # Makes the Window visible and brings it to the front
   show: ->
-    notImplemented()
+    @_show()
 
-  # Hides the Window
+  # Hides the Window offscreen
   hide: ->
-    notImplemented()
+    @_hide()
+
+  # Permanently closes and releases the Window
+  close: ->
+    @_close()
+
+  # Collapse the window
+  minimize: ->
+    @_minimize()
+
+  # Un-collapse the window
+  deminimize: ->
+    @_deminimize()
 
   # Horizontally centers the Window on the user's screen
   center: ->
-    notImplemented()
+    @_center()
 
   # Navigates the embedded browser to the specified `url`
   #
   # @param [String] url the URL to navigate to. Relative URLs like
   #   'index.html' will be resolved from the project root.
   navigateToURL: (url) ->
-    notImplemented()
+    @_navigateToURL(url)
 
 
 # Reroute all the getter/setters from the magic properties defined
 # above so that we don't have to duplicate the Object.defineProperty
 # call on every platform.
+# See Scribe.Window.OSX.js in the scribe-platform-osx project as
+# an example of the patched-in implementation.
 do ->
 
   MAGIC_PROPERTIES = [
@@ -132,7 +142,9 @@ do ->
     "height",
     "alpha",
     "topmost",
-    "sameOriginPolicy"
+    "sameOriginPolicy",
+    "nativeWindowObject",
+    "visible"
   ]
 
   capitalize = (str) ->
@@ -142,6 +154,8 @@ do ->
 
     # We reroute access so that obj.x = 1 calls obj._setX(1), and
     # console.log(obj.x) calls obj._getX() 
+    # That way we can "patch" the implementations in later by
+    # assigning Scribe.Window.prototype._show in the platform code.
     Object.defineProperty Scribe.Window.prototype, prop, 
       get: -> @["_get#{capitalize prop}"]()
       set: (val) -> @["_set#{capitalize prop}"](val)
