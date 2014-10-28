@@ -1,7 +1,7 @@
 # Manipulates a native window that contains an embedded browser.
 # The embedded browser can load an arbitrary URL. Code running in
 # the embedded browser can access the Window instance through the
-# `Scribe.Window` global.
+# `Scribe.Window.current` property.
 #
 # @event open       The Window has been made visible
 # @event hide       The Window has been hidden
@@ -68,7 +68,7 @@ class Scribe.Window
   # @property [Boolean] the embedded browser enforces Same Origin Policy
   sameOriginPolicy: true
 
-  # @property [Object] a reference to the native window object. The
+  # @property [Object] A reference to the native window object. The
   #   exact type and API of this object will be platform-dependent.
   nativeWindowObject: null
 
