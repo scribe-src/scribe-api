@@ -24,7 +24,7 @@ Scribe.Mixins.Triggerable =
     eventName = eventName.toLowerCase()
     if callback?
       @_eventsHash[eventName] ?= []
-      cbIdx = idx @_eventsHash[eventName].indexOf(callback)
+      cbIdx = @_eventsHash[eventName].indexOf(callback)
       @_eventsHash[eventName].splice(cbIdx) if cbIdx > -1
     else
       @_eventsHash[eventName] = []
@@ -36,6 +36,7 @@ Scribe.Mixins.Triggerable =
   trigger: (eventName) ->
     eventName = eventName.toLowerCase()
     cb() for cb in (@_eventsHash[eventName] || [])
+    null # prevent the callbacks from being gathered and returned!
 
 # Used for mixing this behavior into an instance.
 # This is kept outside the main module definition to prevent
@@ -43,4 +44,5 @@ Scribe.Mixins.Triggerable =
 Scribe.Mixins.Triggerable.mixin = (context) ->
   context._eventsHash = {}
   context.on = @on.bind(context)
+  context.off = @off.bind(context)
   context.trigger = @trigger.bind(context)

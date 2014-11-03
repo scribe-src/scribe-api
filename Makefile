@@ -1,6 +1,12 @@
-PATH := ./node_modules/.bin:${PATH}
+DIST_FILES =                 \
+  dist/index.js              \
+  dist/Scribe.Triggerable.js \
+  dist/Scribe.Engine.js      \
+  dist/Scribe.Menu.js        \
+  dist/Scribe.Screen.js      \
+  dist/Scribe.Window.js   
 
-.PHONY : init clean-docs clean build dist publish docs
+.PHONY : init clean build dist docs
 
 init:
 	npm install
@@ -10,13 +16,10 @@ clean:
 	rm -rf docs
 
 build:
-	coffee -b -o dist/ -c src/
-	uglifyjs --screw-ie8 -m --stats ./dist/index.js > ./dist.js
-	rm ./dist/index.js
-	uglifyjs --screw-ie8 -m --stats ./dist/*.js >> ./dist.js
+	./node_modules/.bin/coffee -b -o dist/ -c src/
+	./node_modules/.bin/uglifyjs --screw-ie8 $(DIST_FILES) >> ./dist.js
 	rm -f ./dist/*
 	mv ./dist.js ./dist/
-	printf "\x00" >> ./dist/dist.js
 
 docs:
 	./node_modules/.bin/codo

@@ -12,6 +12,7 @@
 # @event blur       The Window has been blurred
 # @event minimize   The Window has been minimized
 # @event deminimize The Window has been de-minimized
+# @event message    The Window has received a message from another Window
 #
 # @include Scribe.Mixins.Triggerable
 class Scribe.Window
@@ -24,6 +25,12 @@ class Scribe.Window
   #
   @current: null
 
+  # Broadcast a message to all alive Windows
+  #
+  # @param message [String] the message to send to all Windows
+  @broadcastMessage: (message) ->
+    @_broadcastMessage(message)
+
   # Creates and returns a new instance of `Scribe.Window`
   #
   # @param opts [Object] the options for Scribe.Window's constructor
@@ -34,9 +41,12 @@ class Scribe.Window
   # @property [Boolean] the Window covers the entire screen
   fullscreen: false
 
-  # @property [String] the title of the Window. If `titleBar` is true,
+  # @property [String] the title of the Window. If `chrome` is true,
   #   this String will be displayed above the Window.
   title: null
+
+  # @property [Boolean] display the window chrome (the titlebar)
+  chrome: true
 
   # @property [Boolean] the Window can be closed by the user
   closable: true
@@ -71,6 +81,10 @@ class Scribe.Window
   # @property [Object] A reference to the native window object. The
   #   exact type and API of this object will be platform-dependent.
   nativeWindowObject: null
+
+  # @property [Scribe.Engine] the Scribe.Engine instance that has been injected
+  #   into the currently-loaded Javascript context.
+  engine: null
 
   # Creates a new Window in the native window manager
   #
@@ -123,39 +137,28 @@ class Scribe.Window
   navigateToURL: (url) ->
     @_navigateToURL(url)
 
+  # Posts the message
+  # @param message [String] the message to send
+  # @param
+  postMessage: (message) ->
+    @_postMessage(message)
 
-# Reroute all the getter/setters from the magic properties defined
-# above so that we don't have to duplicate the Object.defineProperty
-# call on every platform.
-# See Scribe.Window.OSX.js in the scribe-platform-osx project as
-# an example of the patched-in implementation.
 do ->
 
-  MAGIC_PROPERTIES = [
-    "fullscreen",
-    "title",
-    "closable",
-    "resizable",
-    "left",
-    "top",
-    "width",
-    "height",
-    "alpha",
-    "topmost",
-    "sameOriginPolicy",
-    "nativeWindowObject",
+  # Make some property lookups call "magic" getter/setter methods
+  # that will be implemented by the Platform
+  Scribe.Mixins.GetterSetters.mixin(Scribe.Window.prototype, [
+    "fullscreen"
+    "title"
+    "closable"
+    "resizable"
+    "left"
+    "top"
+    "width"
+    "height"
+    "alpha"
+    "topmost"
+    "sameOriginPolicy"
+    "nativeWindowObject"
     "visible"
-  ]
-
-  capitalize = (str) ->
-    str.charAt(0).toUpperCase() + str.substring(1)
-
-  MAGIC_PROPERTIES.forEach (prop) ->
-
-    # We reroute access so that obj.x = 1 calls obj._setX(1), and
-    # console.log(obj.x) calls obj._getX() 
-    # That way we can "patch" the implementations in later by
-    # assigning Scribe.Window.prototype._show in the platform code.
-    Object.defineProperty Scribe.Window.prototype, prop, 
-      get: -> @["_get#{capitalize prop}"]()
-      set: (val) -> @["_set#{capitalize prop}"](val)
+  ])

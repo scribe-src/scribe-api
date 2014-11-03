@@ -1,4 +1,4 @@
-# Manipulates a native menu proveded by the window manager
+# Manipulates a native menu provided by the window manager.
 #
 # @include Scribe.Mixins.Triggerable
 class Scribe.Menu
@@ -10,3 +10,4 @@ class Scribe.Menu
   # @option opts [String] title
   constructor: (opts={}) ->
     Scribe.Mixins.Triggerable.mixin(@)
+
