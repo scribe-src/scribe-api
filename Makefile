@@ -33,3 +33,12 @@ docs:
 	./node_modules/.bin/codo
 
 dist: clean init build docs
+
+publish: dist
+	git push origin master
+	git checkout gh-pages	
+	git merge master -m "Merge in latest master" -S
+	make docs
+	git add .
+	git commit -m "Bump docs." -S
+	git push origin master
