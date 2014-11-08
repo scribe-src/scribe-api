@@ -2,5 +2,5 @@ require('../../dist/dist.js')
 
 describe 'Scribe.Mixins.Triggerable', ->
 
-  it 'should be defined', ->
+  it 'is defined', ->
     expect(Scribe.Mixins.Triggerable).toBeDefined()
