@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/scribe-src/scribe-api.svg)](https://travis-ci.org/scribe-src/scribe-api)
+
 ### Scribe Javascript API
 
 The `scribe-api` module implements Scribe's high-level Javascript interfaces available to code inside your HTML app. It is used to generate documentation and define common shared Javascript functionality among the Scribe platforms (event handling, OOP, and utility functions); the actual implementations of many functions are left for the `scribe-platform-*` projects.
