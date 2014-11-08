@@ -21,6 +21,10 @@ build:
 	rm -f ./dist/*
 	mv ./dist.js ./dist/
 
+test:
+	build
+	
+
 docs:
 	./node_modules/.bin/codo
 

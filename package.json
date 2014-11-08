@@ -3,7 +3,7 @@
   "description": "Scribe Javascript API",
   "version": "0.0.1",
   "devDependencies": {
-    "codo": "2.0.9",
+    "codo": "https://github.com/scribe-io/codo/tarball/master",
     "coffee-script": "1.8.0",
     "uglify-js": "2.4.15"
   },
