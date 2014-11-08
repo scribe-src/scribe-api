@@ -4,7 +4,9 @@ The `scribe-api` module implements Scribe's high-level Javascript interfaces ava
 
 The APIs are meant to be short and sweet. Interfaces are written in [Coffeescript](http://coffeescript.org/) and HTML documentation is generated with [Codo](https://github.com/coffeedoc/codo).
 
-NOTE: Currently I am using a modified version of `codo` that includes class templates, so I have checked in `node_modules`. This is bad practice and I really should kick my `codo` changes out to a fork.
+#### Documentation
+
+Documentation is hosted on [github-pages](http://http://scribe-src.github.io/scribe-api/doc/).
 
 #### Generating docs
 
