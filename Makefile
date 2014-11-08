@@ -41,4 +41,5 @@ publish: dist
 	make docs
 	git add .
 	git commit -m "Bump docs." -S
-	git push origin master
+	git push origin gh-pages
+	git checkout -
