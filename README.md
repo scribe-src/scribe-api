@@ -24,7 +24,7 @@ Documentation is hosted on [github-pages](http://scribe-src.github.io/scribe-api
 
 #### License
 
-    [BSD 3-Clause](http://opensource.org/licenses/BSD-3-Clause)
+[BSD 3-Clause](http://opensource.org/licenses/BSD-3-Clause)
 
 #### Copyright
 
