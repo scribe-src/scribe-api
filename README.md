@@ -20,4 +20,4 @@ Documentation is hosted on [github-pages](http://http://scribe-src.github.io/scr
 
 #### Running tests
 
-    Currently there are no tests.
+    $ make test
