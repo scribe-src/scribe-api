@@ -1,10 +1,13 @@
 DIST_FILES =                 \
   dist/index.js              \
-  dist/Scribe.Triggerable.js \
-  dist/Scribe.Engine.js      \
-  dist/Scribe.Menu.js        \
-  dist/Scribe.Screen.js      \
-  dist/Scribe.Window.js   
+  dist/scribe/triggerable.js \
+  dist/scribe/engine.js      \
+  dist/scribe/menu.js        \
+  dist/scribe/screen.js      \
+  dist/scribe/window.js
+
+JASMINE_CLI=./node_modules/.bin/jasmine-node
+UGLIFY_OPTS=--wrap --export-all
 
 .PHONY : init clean build dist docs
 
@@ -15,17 +18,27 @@ clean:
 	rm -rf dist/
 	rm -rf docs
 
-build:
+build: init
 	./node_modules/.bin/coffee -b -o dist/ -c src/
-	./node_modules/.bin/uglifyjs --screw-ie8 $(DIST_FILES) >> ./dist.js
-	rm -f ./dist/*
+	./node_modules/.bin/uglifyjs \
+		$(UGLIFY_OPTS) $(DIST_FILES) >> ./dist.js
+	rm -rf ./dist
+	mkdir -p ./dist
 	mv ./dist.js ./dist/
 
-test:
-	build
-	
+test: build
+	$(JASMINE_CLI) --coffee  --verbose ./spec
 
 docs:
 	./node_modules/.bin/codo
 
-dist: clean init build docs
+dist: clean init build
+
+publish: dist
+	git push origin master
+	git checkout gh-pages	
+	git merge master -m "Merge in latest master" -S
+	make docs
+	git add .
+	git commit -m "Bump docs." -S
+	git push origin master
