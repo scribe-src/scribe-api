@@ -8,7 +8,7 @@ The APIs are meant to be short and sweet. Interfaces are written in [Coffeescrip
 
 #### Documentation
 
-Documentation is hosted on [github-pages](http://http://scribe-src.github.io/scribe-api/doc/).
+Documentation is hosted on [github-pages](http://scribe-src.github.io/scribe-api/doc/).
 
 #### Generating docs
 
