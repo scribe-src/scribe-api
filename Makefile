@@ -9,7 +9,7 @@ DIST_FILES =                 \
 JASMINE_CLI=./node_modules/.bin/jasmine-node
 UGLIFY_OPTS=--wrap --export-all
 
-.PHONY : init clean build dist docs
+.PHONY : init clean build dist docs test test-run publish
 
 init:
 	npm install
@@ -26,7 +26,9 @@ build: init
 	mkdir -p ./dist
 	mv ./dist.js ./dist/
 
-test: build
+test: build test-run
+
+test-run:
 	$(JASMINE_CLI) --coffee  --verbose ./spec
 
 docs:
