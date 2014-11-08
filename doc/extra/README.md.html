@@ -34,17 +34,17 @@
         </p>
       </nav>
       <div id='filecontents'>
-        <h3 id="scribe-javascript-api">Scribe Javascript API</h3><p>The <code>scribe-api</code> module implements Scribe&#39;s high-level Javascript interfaces available to code inside your HTML app. It is used to generate documentation and define common shared Javascript functionality among the Scribe platforms (event handling, OOP, and utility functions); the actual implementations of many functions are left for the <code>scribe-platform-*</code> projects.</p><p>The APIs are meant to be short and sweet. Interfaces are written in <a href="http://coffeescript.org/">Coffeescript</a> and HTML documentation is generated with <a href="https://github.com/coffeedoc/codo">Codo</a>.</p><p>NOTE: Currently I am using a modified version of <code>codo</code> that includes class templates, so I have checked in <code>node_modules</code>. This is bad practice and I really should kick my <code>codo</code> changes out to a fork.</p><h4 id="generating-docs">Generating docs</h4>
+        <p><a href="https://travis-ci.org/scribe-src/scribe-api"><img src="https://travis-ci.org/scribe-src/scribe-api.svg" alt="Build Status"></a></p><h3 id="scribe-javascript-api">Scribe Javascript API</h3><p>The <code>scribe-api</code> module implements Scribe&#39;s high-level Javascript interfaces available to code inside your HTML app. It is used to generate documentation and define common shared Javascript functionality among the Scribe platforms (event handling, OOP, and utility functions); the actual implementations of many functions are left for the <code>scribe-platform-*</code> projects.</p><p>The APIs are meant to be short and sweet. Interfaces are written in <a href="http://coffeescript.org/">Coffeescript</a> and HTML documentation is generated with <a href="https://github.com/coffeedoc/codo">Codo</a>.</p><h4 id="documentation">Documentation</h4><p>Documentation is hosted on <a href="http://scribe-src.github.io/scribe-api/doc/">github-pages</a>.</p><h4 id="generating-docs">Generating docs</h4>
 <pre><code>$ make docs
 </code></pre><h4 id="compiling-to-javascript">Compiling to Javascript</h4>
 <pre><code>$ make build
 </code></pre><h4 id="running-tests">Running tests</h4>
-<pre><code>Currently there are no tests.
+<pre><code>$ make test
 </code></pre>
       </div>
     </div>
     <div id='footer'>
-  November 08, 14 15:52:50 by
+  November 08, 14 17:34:37 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
