@@ -32,7 +32,7 @@ test: build
 docs:
 	./node_modules/.bin/codo
 
-dist: clean init build docs
+dist: clean init build
 
 publish: dist
 	git push origin master
