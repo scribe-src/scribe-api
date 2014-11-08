@@ -1,4 +1,5 @@
-# A physical Screen that can display a Window.
+# A physical Screen that can display a Window. An onchange handler
+# can be registered with `Scribe.Screen.on('change', handler)`.
 #
 # @event change A screen has been added, removed, or resized.
 class Scribe.Screen
