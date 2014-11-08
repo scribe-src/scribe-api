@@ -1,5 +1,5 @@
 {
-  "name": "scribe-docs",
+  "name": "scribe-api",
   "description": "Scribe Javascript API",
   "version": "0.0.1",
   "devDependencies": {
@@ -9,5 +9,6 @@
     "jasmine-node": "~ 1.3.1"
   },
   "scripts": {
+    "test": "make test"
   }
 }
