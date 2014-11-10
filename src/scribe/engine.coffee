@@ -23,7 +23,7 @@ class Scribe.Engine
   #
   # A reference to the native Engine object. The exact type and API
   #   of this object will be platform-dependent.
-  nativeEngineObject: null
+  nativeObject: null
 
   # Evaluates the given `jsCode` in the context of the Engine.
   #
