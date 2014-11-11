@@ -21,83 +21,101 @@
     &raquo;
     <span class='title'>Scribe</span>
     &raquo;
-    <span class='title'>Menu</span>
+    <span class='title'>Mixins</span>
+    &raquo;
+    <span class='title'>Settable</span>
   </div>
 </div>
     <div id='content'>
       <h1>
-        Class:
-        Scribe.Menu
+        Mixin:
+        Scribe.Mixins.Settable
       </h1>
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>src&#47;scribe&#47;menu.coffee</td>
+          <td>src&#47;scribe&#47;mixins&#47;settable.coffee</td>
         </tr>
         <tr>
-          <td>Includes:</td>
+          <td>Included in:</td>
           <td>
-            <a href='../../mixin/Scribe/Mixins.Triggerable.html'>Scribe.Mixins.Triggerable</a>
+            <a href='../../class/Scribe/Window.html'>Scribe.Window</a>
           </td>
         </tr>
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <p>Manipulates a native menu provided by the window manager.</p>
+  <p>Allows instance properties to be changed with a set() method.</p>
 </div>
 <div class='tags'>
 </div>
-      <h2>
-        <small>Included Method Summary</small>
-      </h2>
-      <h3 class='inherited'>
-        Methods included from
-        <a href='../../mixin/Scribe/Mixins.Triggerable.html'>Scribe.Mixins.Triggerable</a>
-      </h3>
-      <p class='inherited'>
-        <a href='../../mixin/Scribe/Mixins.Triggerable.html#on-dynamic'>#on</a>
-        <a href='../../mixin/Scribe/Mixins.Triggerable.html#off-dynamic'>#off</a>
-        <a href='../../mixin/Scribe/Mixins.Triggerable.html#trigger-dynamic'>#trigger</a>
-      </p>
-      <h2>Constructor Details</h2>
+      <h2>Method Summary</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#set-'>
+        ~
+(void)
+<b>set</b><span>(keyOrObj, val)</span>
+      </a>
+    </span>
+    <span class='desc'>
+    </span>
+  </li>
+</ul>
+      <h2>Method Details</h2>
       <div class='methods'>
   <div class='method_details'>
-    <p class='signature' id='constructor-dynamic'>
-      #
+    <p class='signature' id='set-'>
+      ~
 (void)
-<b>constructor</b><span>(opts = {})</span>
+<b>set</b><span>(keyOrObj, val)</span>
       <br>
     </p>
     <div class='docstring'>
-  <p>Creates a new Menu which can contain MenuItems that point
-to other menus (for Submenu navigation).</p>
+  
+  <div class='examples'>
+    <h3>Examples:</h3>
+    <h4>
+      using the key, val syntax:
+    </h4>
+    <pre><code class='coffeescript'>car.set(&#39;speed&#39;, 0.5);
+car.set(&#39;acceleration&#39;, 1.2);</code></pre>
+  </div>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
   <ul class='param'>
     <li>
-      <span class='name'>opts</span>
+      <span class='name'>keyOrObj</span>
       <span class='type'>
         (
-          <tt>Hash</tt>
+          <tt>String, Object</tt>
         )
       </span>
       &mdash;
-      <span class='desc'>the options hash </span>
+      <span class='desc'>either the  </span>
     </li>
-  </ul>
-  <h3>
-    Options Hash:
-    (opts):
-  </h3>
-  <ul class='options'>
     <li>
-      <span class='name'>title</span>
+      <span class='name'>callback</span>
       <span class='type'>
         (
-          <tt>String</tt>
+          <tt>Function</tt>
         )
       </span>
+      &mdash;
+      <span class='desc'>the code to run when the event fires </span>
+    </li>
+  </ul>
+  <h3>Throws:</h3>
+  <ul class='throw'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt>Error</tt>
+      )
+      &mdash;
+      <span class='desc'>when incorrect arguments are given </span>
     </li>
   </ul>
 </div>
