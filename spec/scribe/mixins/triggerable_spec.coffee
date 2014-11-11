@@ -1,4 +1,4 @@
-require('../../dist/dist.js')
+require('../../../dist/dist.js')
 
 spy = ->
   calls = 0
