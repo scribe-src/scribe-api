@@ -15,6 +15,7 @@
 # @event message    The Window has received a message from another Window
 #
 # @include Scribe.Mixins.Triggerable
+# @include Scribe.Mixins.Settable
 class Scribe.Window
 
   # @property [Scribe.Window]
@@ -101,6 +102,7 @@ class Scribe.Window
   # @option opts [Boolean] topmost
   constructor: (opts={}) ->
     Scribe.Mixins.Triggerable.mixin(@)
+    Scribe.Mixins.Settable.mixin(@)
     if opts.nativeWindowObject?
       @_nativeWindowObject = opts.nativeWindowObject
     else

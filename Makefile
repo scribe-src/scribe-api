@@ -1,6 +1,6 @@
 DIST_FILES =                 \
   dist/index.js              \
-  dist/scribe/triggerable.js \
+  dist/scribe/mixins/*.js    \
   dist/scribe/engine.js      \
   dist/scribe/menu.js        \
   dist/scribe/screen.js      \
