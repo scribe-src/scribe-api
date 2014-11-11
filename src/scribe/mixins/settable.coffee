@@ -14,8 +14,11 @@ Scribe.Mixins.Settable =
   #   car.set('speed', 0.5);
   #   car.set('acceleration', 1.2);
   #
-  # @param [String, Object] keyOrObj either the 
-  # @param [Function] callback the code to run when the event fires
+  # @param [String, Object] keyOrObj either an Object literal containing
+  #   key, value pairs that it wants to set on the instance, or a
+  #   String that contains the key to store `val` under.
+  # @param [Object] val the value to set, required when `keyOrObj` is a
+  #   String.
   # @throw [Error] when incorrect arguments are given
   set: (keyOrObj, val) ->
     if typeof keyOrObj is 'string' and typeof val isnt 'undefined'
