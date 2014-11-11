@@ -9,7 +9,7 @@ Scribe.Mixins.Settable =
   # 
   # @example using the Object syntax:
   #   car.set({ speed: 0.5, acceleration: 1.2 })
-
+  #
   # @example using the key, val syntax:
   #   car.set('speed', 0.5);
   #   car.set('acceleration', 1.2);
