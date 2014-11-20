@@ -145,7 +145,6 @@ class Scribe.Window
 
   # Posts the message
   # @param message [String] the message to send
-  # @param
   postMessage: (message) ->
     @_postMessage(message)
 
@@ -153,6 +152,7 @@ do ->
 
   # Make some property lookups call "magic" getter/setter methods
   # that will be implemented by the Platform
+  # @nodoc
   Scribe.Mixins.GetterSetters.mixin(Scribe.Window.prototype, [
     'fullscreen'
     'title'

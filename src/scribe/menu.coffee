@@ -9,6 +9,13 @@
 # @include Scribe.Mixins.Triggerable
 class Scribe.Menu
 
+  # Internal class for tracking MenuItems and SubMenus
+  # @nodoc
+  class MenuItem
+    label: null
+    children: []
+    action: ->
+
   # Creates a new Menu which can contain MenuItems that point
   # to other menus (for Submenu navigation).
   #
