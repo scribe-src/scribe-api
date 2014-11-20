@@ -11,11 +11,6 @@ class Scribe.Engine
 
   # @property [Scribe.Engine]
   #
-  # A reference to the Engine that created the `current` Engine.
-  @parent: null
-
-  # @property [Scribe.Engine]
-  #
   # A reference to the Engine that created this Engine.
   parent: null
 
@@ -25,23 +20,29 @@ class Scribe.Engine
   #   of this object will be platform-dependent.
   nativeObject: null
 
-  # Evaluates the given `jsCode` in the context of the Engine.
+  # @property [Object]
+  #
+  #   A reference to the Javascript global object from the embedded
+  #   WebView inside this Window.
+  jsGlobal: null
+
+  # Evaluates the given `jsCode` in the context of the Engine
   #
   # @param jsCode [String] the Javascript to execute
-  # @return [void]
+  # @return [Object] the serialized result
   eval: (jsCode) ->
     @_eval(jsCode)
 
-
 do ->
   # Make some property lookups call "magic" getter/setter methods
-  # that will be implemented by the Platform
+  # that will be implemented by the Engine
   Scribe.Mixins.GetterSetters.mixin(Scribe.Engine.prototype, [
-    'nativeEngineObject'
+    'nativeObject'
     'parent'
+    'jsGlobal'
   ])
 
+  # Magic getters/setters on static class properties
   Scribe.Mixins.GetterSetters.mixin(Scribe.Engine, [
     'current'
-    'parent'
   ])
