@@ -1,7 +1,6 @@
 DIST_FILES =                 \
   dist/index.js              \
   dist/scribe/mixins/*.js    \
-  dist/scribe/environment.js \
   dist/scribe/app.js         \
   dist/scribe/platform.js    \
   dist/scribe/engine.js      \

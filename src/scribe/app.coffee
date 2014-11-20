@@ -1,5 +1,5 @@
 #
-# A GUI application
+# A GUI application.
 #
 class Scribe.App
 
@@ -20,10 +20,19 @@ class Scribe.App
   #   like `io.scribe.app`
   identifier: null
 
-  # @property [String]
-  #
-  # A filesystem path to the native executable
+  # @property [String] a filesystem path to the native executable
   exePath: null
+
+  # @property [String] the current working directory
+  cwd: null
+
+  # @property [Array<String>]
+  #
+  # The arguments that were passed to our process
+  arguments: []
+
+  # @property [Object] the environment variables
+  env: []
 
   # Kills the application and returns `status`
   #
