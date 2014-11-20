@@ -15,5 +15,11 @@ class Scribe.Plugin
   # @return [Scribe.Plugin]
   @load: (name) ->
 
+  # @param [String] fnName the name of the function to call
+  #
+  # Calls the specified function. Any additional arguments
+  # provided will be forwarded as arguments to the function.
+  #
   # @return [Object] serialized data from the plugin
-  call: (args...) ->
+  call: (fnName, args...) ->
+    @_call.apply(@, arguments)
