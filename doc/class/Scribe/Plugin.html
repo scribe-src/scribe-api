@@ -21,148 +21,117 @@
     &raquo;
     <span class='title'>Scribe</span>
     &raquo;
-    <span class='title'>App</span>
+    <span class='title'>Plugin</span>
   </div>
 </div>
     <div id='content'>
       <h1>
         Class:
-        Scribe.App
+        Scribe.Plugin
       </h1>
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>src&#47;scribe&#47;app.coffee</td>
+          <td>src&#47;scribe&#47;plugin.coffee</td>
         </tr>
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <p>A GUI application.</p>
+  <p>An interface to a native plugin.</p>
+  <div class='examples'>
+    <h3>Examples:</h3>
+    <h4>
+      
+    </h4>
+    <pre><code class='coffeescript'>
+var adLibrary = Scribe.Plugin.load(&#39;GenericAds&#39;);
+adLibrary.call(&#39;init&#39;, &#39;AFB15610CCCEF1101&#39;);
+adLibrary.call(&#39;reportEvent&#39;, &#39;launch&#39;);</code></pre>
+  </div>
 </div>
 <div class='tags'>
 </div>
-      <h2>Class Properties</h2>
-      <dl class='properties'>
-        <dt id='current-property'>
-          <span class='signature'>
-            (Scribe.App)
-            <b>
-              current
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          A reference to the currently-running application (aliased as <code>Scribe.app</code>) 
-        </dd>
-      </dl>
+      <h2>Class Methods</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#load-static'>
+        .
+(Scribe.Plugin)
+<b>load</b><span>(name)</span>
+      </a>
+    </span>
+    <span class='desc'>
+    </span>
+  </li>
+</ul>
       <h2>Instance Properties</h2>
       <dl class='properties'>
-        <dt id='name-property'>
+        <dt id='all-property'>
           <span class='signature'>
-            (String)
+            (Array&lt;Scribe.Plugin&gt;)
             <b>
-              name
+              all
             </b>
           </span>
         </dt>
         <dd class='desc'>
-          The name of the current application 
-        </dd>
-        <dt id='identifier-property'>
-          <span class='signature'>
-            (String)
-            <b>
-              identifier
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          A reverse-DNS identifier for the current application, like <code>io.scribe.app</code> 
-        </dd>
-        <dt id='exePath-property'>
-          <span class='signature'>
-            (String)
-            <b>
-              exePath
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          a filesystem path to the native executable 
-        </dd>
-        <dt id='cwd-property'>
-          <span class='signature'>
-            (String)
-            <b>
-              cwd
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          the current working directory 
-        </dd>
-        <dt id='arguments-property'>
-          <span class='signature'>
-            (Array&lt;String&gt;)
-            <b>
-              arguments
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          The arguments that were passed to our process 
-        </dd>
-        <dt id='env-property'>
-          <span class='signature'>
-            (Object)
-            <b>
-              env
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          the environment variables 
+          all loaded plugins 
         </dd>
       </dl>
       <h2>Instance Methods</h2>
       <ul class='summary'>
   <li>
     <span class='signature'>
-      <a href='#exit-dynamic'>
+      <a href='#call-dynamic'>
         #
-(void)
-<b>exit</b><span>(status)</span>
+(Object)
+<b>call</b><span>(args...)</span>
       </a>
     </span>
     <span class='desc'>
-      Kills the application and returns <code>status</code> 
     </span>
   </li>
 </ul>
+      <h2>Class Method Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='load-static'>
+      .
+(Scribe.Plugin)
+<b>load</b><span>(name)</span>
+      <br>
+    </p>
+    <div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      <tt><a href='../../class/Scribe/Plugin.html'>Scribe.Plugin</a></tt>
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
       <h2>Instance Method Details</h2>
       <div class='methods'>
   <div class='method_details'>
-    <p class='signature' id='exit-dynamic'>
+    <p class='signature' id='call-dynamic'>
       #
-(void)
-<b>exit</b><span>(status)</span>
+(Object)
+<b>call</b><span>(args...)</span>
       <br>
     </p>
-    <div class='docstring'>
-  <p>Kills the application and returns <code>status</code></p>
-</div>
-<div class='tags'>
-  <h3>Parameters:</h3>
-  <ul class='param'>
+    <div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
     <li>
-      <span class='name'>status</span>
-      <span class='type'>
-        (
-          <tt>Number</tt>
-        )
-      </span>
+      <span class='type'></span>
+      (
+        <tt>Object</tt>
+      )
       &mdash;
-      <span class='desc'>the process status to return </span>
+      <span class='desc'>serialized data from the plugin </span>
     </li>
   </ul>
 </div>

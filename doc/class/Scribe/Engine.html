@@ -37,7 +37,7 @@
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <p>The Engine tracks the Javascript execution context and provides a
+  <p>An Engine tracks a single Javascript execution context and provides a
 few runtime fundamentals like <code>eval</code> and parent context tracking.</p>
 </div>
 <div class='tags'>
@@ -106,6 +106,19 @@ few runtime fundamentals like <code>eval</code> and parent context tracking.</p>
       Evaluates the given <code>jsCode</code> in the context of the Engine 
     </span>
   </li>
+  <li>
+    <span class='signature'>
+      <a href='#console-dynamic'>
+        #
+(void)
+<b>console</b><span>()</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Starts a small Javascript REPL on stdin and blocks until the user runs <code>exit()</code>.
+
+    </span>
+  </li>
 </ul>
       <h2>Instance Method Details</h2>
       <div class='methods'>
@@ -146,10 +159,24 @@ few runtime fundamentals like <code>eval</code> and parent context tracking.</p>
   </ul>
 </div>
   </div>
+  <div class='method_details'>
+    <p class='signature' id='console-dynamic'>
+      #
+(void)
+<b>console</b><span>()</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Starts a small Javascript REPL on stdin and blocks until
+the user runs <code>exit()</code>.</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
 </div>
     </div>
     <div id='footer'>
-  November 20, 14 02:27:58 by
+  November 20, 14 03:15:13 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
