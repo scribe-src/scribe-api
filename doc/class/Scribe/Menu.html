@@ -43,10 +43,72 @@
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <p>Manipulates a native menu provided by the window manager.</p>
+  <p>Manipulates a native desktop menu provided by the window manager.</p><p>Due to inconsistencies between platforms, the meaning of Menu
+is not always the same. On Windows and Linux, each Window has
+its own Menu. On OSX, there is only one Menu per app, and
+without a menu many core functions like copy/paste/quit shortcuts
+are missing.</p>
 </div>
 <div class='tags'>
 </div>
+      <h2>Class Methods</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#create-static'>
+        .
+(void)
+<b>create</b><span>(items, opts)</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Creates a new Menu which can contain MenuItems that point to other menus (for Submenu navigation).
+
+    </span>
+  </li>
+</ul>
+      <h2>Instance Properties</h2>
+      <dl class='properties'>
+        <dt id='nativeObject-property'>
+          <span class='signature'>
+            (Object)
+            <b>
+              nativeObject
+            </b>
+          </span>
+        </dt>
+        <dd class='desc'>
+          A reference to the native Menu object. The exact type and API of this object will be platform-dependent. 
+        </dd>
+      </dl>
+      <h2>Instance Methods</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#bootstrapOSX-dynamic'>
+        #
+(Scribe.Menu)
+<b>bootstrapOSX</b><span>()</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Builds a minimal menu for allowing Cut/Copy/Paste and Hide/Quit shortcuts on OSX.
+
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#show-dynamic'>
+        #
+(void)
+<b>show</b><span>(window)</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Attaches the Menu to the given <code>window</code>. 
+    </span>
+  </li>
+</ul>
       <h2>
         <small>Included Method Summary</small>
       </h2>
@@ -59,18 +121,31 @@
         <a href='../../mixin/Scribe/Mixins.Triggerable.html#off-dynamic'>#off</a>
         <a href='../../mixin/Scribe/Mixins.Triggerable.html#trigger-dynamic'>#trigger</a>
       </p>
-      <h2>Constructor Details</h2>
+      <h2>Class Method Details</h2>
       <div class='methods'>
   <div class='method_details'>
-    <p class='signature' id='constructor-dynamic'>
-      #
+    <p class='signature' id='create-static'>
+      .
 (void)
-<b>constructor</b><span>(opts = {})</span>
+<b>create</b><span>(items, opts)</span>
       <br>
     </p>
     <div class='docstring'>
   <p>Creates a new Menu which can contain MenuItems that point
-to other menus (for Submenu navigation).</p>
+to other menus (for Submenu navigation).</p><p> Scribe.Menu.create([
+    {
+      label: &#39;Scribe App&#39;,
+      action: function() {}
+    },
+    {
+      label: &#39;File&#39;,
+      action: function() {}
+    },
+    {
+      label: &#39;Window&#39;,
+      action: function() {}
+    },
+ ])</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -103,9 +178,93 @@ to other menus (for Submenu navigation).</p>
 </div>
   </div>
 </div>
+      <h2>Constructor Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='constructor-dynamic'>
+      #
+(void)
+<b>constructor</b><span>(items, opts)</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Creates a new Menu</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>items</span>
+      <span class='type'>
+        (
+          <tt>Array&lt;Object&gt;</tt>
+        )
+      </span>
+    </li>
+    <li>
+      <span class='name'>opts</span>
+      <span class='type'>
+        (
+          <tt>Object</tt>
+        )
+      </span>
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
+      <h2>Instance Method Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='bootstrapOSX-dynamic'>
+      #
+(Scribe.Menu)
+<b>bootstrapOSX</b><span>()</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Builds a minimal menu for allowing Cut/Copy/Paste and
+Hide/Quit shortcuts on OSX. Has no effect on other platforms.</p><p>The minimal menu looks like: <code>App name | File | Edit | Window</code></p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      <tt><a href='../../class/Scribe/Menu.html'>Scribe.Menu</a></tt>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='show-dynamic'>
+      #
+(void)
+<b>show</b><span>(window)</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Attaches the Menu to the given <code>window</code>. On OSX, <code>window</code>
+has no effect.</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>window</span>
+      <span class='type'>
+        (
+          <tt><a href='../../class/Scribe/Window.html'>Scribe.Window</a></tt>
+        )
+      </span>
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
     </div>
     <div id='footer'>
-  November 11, 14 01:32:26 by
+  November 20, 14 01:30:23 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>

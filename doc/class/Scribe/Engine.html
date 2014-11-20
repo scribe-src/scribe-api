@@ -55,17 +55,6 @@ few runtime fundamentals like <code>eval</code> and parent context tracking.</p>
         <dd class='desc'>
           A reference to the Engine that is currently running the caller code. 
         </dd>
-        <dt id='parent-property'>
-          <span class='signature'>
-            (Scribe.Engine)
-            <b>
-              parent
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          A reference to the Engine that created the <code>current</code> Engine. 
-        </dd>
       </dl>
       <h2>Instance Properties</h2>
       <dl class='properties'>
@@ -91,6 +80,17 @@ few runtime fundamentals like <code>eval</code> and parent context tracking.</p>
         <dd class='desc'>
           A reference to the native Engine object. The exact type and API of this object will be platform-dependent. 
         </dd>
+        <dt id='jsGlobal-property'>
+          <span class='signature'>
+            (Object)
+            <b>
+              jsGlobal
+            </b>
+          </span>
+        </dt>
+        <dd class='desc'>
+          A reference to the Javascript global object from the embedded WebView inside this Window. 
+        </dd>
       </dl>
       <h2>Instance Methods</h2>
       <ul class='summary'>
@@ -98,12 +98,12 @@ few runtime fundamentals like <code>eval</code> and parent context tracking.</p>
     <span class='signature'>
       <a href='#eval-dynamic'>
         #
-(void)
+(Object)
 <b>eval</b><span>(jsCode)</span>
       </a>
     </span>
     <span class='desc'>
-      Evaluates the given <code>jsCode</code> in the context of the Engine. 
+      Evaluates the given <code>jsCode</code> in the context of the Engine 
     </span>
   </li>
 </ul>
@@ -112,12 +112,12 @@ few runtime fundamentals like <code>eval</code> and parent context tracking.</p>
   <div class='method_details'>
     <p class='signature' id='eval-dynamic'>
       #
-(void)
+(Object)
 <b>eval</b><span>(jsCode)</span>
       <br>
     </p>
     <div class='docstring'>
-  <p>Evaluates the given <code>jsCode</code> in the context of the Engine.</p>
+  <p>Evaluates the given <code>jsCode</code> in the context of the Engine</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -137,7 +137,11 @@ few runtime fundamentals like <code>eval</code> and parent context tracking.</p>
   <ul class='return'>
     <li>
       <span class='type'></span>
-      <tt>void</tt>
+      (
+        <tt>Object</tt>
+      )
+      &mdash;
+      <span class='desc'>the serialized result </span>
     </li>
   </ul>
 </div>
@@ -145,7 +149,7 @@ few runtime fundamentals like <code>eval</code> and parent context tracking.</p>
 </div>
     </div>
     <div id='footer'>
-  November 11, 14 01:32:26 by
+  November 20, 14 01:30:23 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
