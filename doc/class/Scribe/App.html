@@ -21,88 +21,120 @@
     &raquo;
     <span class='title'>Scribe</span>
     &raquo;
-    <span class='title'>Screen</span>
+    <span class='title'>App</span>
   </div>
 </div>
     <div id='content'>
       <h1>
         Class:
-        Scribe.Screen
+        Scribe.App
       </h1>
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>src&#47;scribe&#47;screen.coffee</td>
+          <td>src&#47;scribe&#47;app.coffee</td>
         </tr>
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <p>A physical Screen that can display a Window. An onchange handler
-can be registered with <code>Scribe.Screen.on(&#39;change&#39;, handler)</code>.</p>
+  <p>A GUI application</p>
 </div>
 <div class='tags'>
 </div>
       <h2>Class Properties</h2>
       <dl class='properties'>
-        <dt id='all-property'>
+        <dt id='current-property'>
           <span class='signature'>
-            (Array&lt;Scribe.Screen&gt;)
+            (Scribe.App)
             <b>
-              all
+              current
             </b>
           </span>
         </dt>
         <dd class='desc'>
-          all the available screens 
+          A reference to the currently-running application (aliased as <code>Scribe.app</code>) 
         </dd>
       </dl>
       <h2>Instance Properties</h2>
       <dl class='properties'>
-        <dt id='width-property'>
+        <dt id='name-property'>
           <span class='signature'>
-            (Number)
+            (String)
             <b>
-              width
+              name
             </b>
           </span>
         </dt>
         <dd class='desc'>
-          the absolute width (in pixels) of the window 
+          The name of the current application 
         </dd>
-        <dt id='height-property'>
+        <dt id='identifier-property'>
           <span class='signature'>
-            (Number)
+            (String)
             <b>
-              height
+              identifier
             </b>
           </span>
         </dt>
         <dd class='desc'>
-          the absolute height (in pixels) of the window 
+          A reverse-DNS identifier for the current application, like <code>io.scribe.app</code> 
         </dd>
-        <dt id='nativeObject-property'>
+        <dt id='exePath-property'>
           <span class='signature'>
-            (Object)
+            (String)
             <b>
-              nativeObject
+              exePath
             </b>
           </span>
         </dt>
         <dd class='desc'>
-          a reference to the Native screen object. The exact type and API of this object will be platform-dependent. 
+          A filesystem path to the native executable 
         </dd>
       </dl>
-      <h2>Instance Events</h2>
-      <div class='event'>
-        <p class='signature'>
-          change
-        </p>
-        <div class='docstring'>
-  <p>A screen has been added, removed, or resized.</p>
+      <h2>Instance Methods</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#exit-dynamic'>
+        #
+(void)
+<b>exit</b><span>(status)</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Kills the application and returns <code>status</code> 
+    </span>
+  </li>
+</ul>
+      <h2>Instance Method Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='exit-dynamic'>
+      #
+(void)
+<b>exit</b><span>(status)</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Kills the application and returns <code>status</code></p>
 </div>
 <div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>status</span>
+      <span class='type'>
+        (
+          <tt>Number</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>the process status to return </span>
+    </li>
+  </ul>
 </div>
-      </div>
+  </div>
+</div>
     </div>
     <div id='footer'>
   November 20, 14 02:14:08 by

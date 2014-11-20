@@ -21,88 +21,79 @@
     &raquo;
     <span class='title'>Scribe</span>
     &raquo;
-    <span class='title'>Screen</span>
+    <span class='title'>Platform</span>
   </div>
 </div>
     <div id='content'>
       <h1>
         Class:
-        Scribe.Screen
+        Scribe.Platform
       </h1>
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>src&#47;scribe&#47;screen.coffee</td>
+          <td>src&#47;scribe&#47;platform.coffee</td>
         </tr>
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <p>A physical Screen that can display a Window. An onchange handler
-can be registered with <code>Scribe.Screen.on(&#39;change&#39;, handler)</code>.</p>
+  <p>A system that is hosting the Scribe runtime</p>
 </div>
 <div class='tags'>
 </div>
       <h2>Class Properties</h2>
       <dl class='properties'>
-        <dt id='all-property'>
+        <dt id='current-property'>
           <span class='signature'>
-            (Array&lt;Scribe.Screen&gt;)
+            (Scribe.Platform)
             <b>
-              all
+              current
             </b>
           </span>
         </dt>
         <dd class='desc'>
-          all the available screens 
+          A reference to the host <code>Platform</code> 
         </dd>
       </dl>
       <h2>Instance Properties</h2>
       <dl class='properties'>
-        <dt id='width-property'>
+        <dt id='name-property'>
           <span class='signature'>
-            (Number)
+            (String)
             <b>
-              width
+              name
             </b>
           </span>
         </dt>
         <dd class='desc'>
-          the absolute width (in pixels) of the window 
+          The name of the platform. One of: <ul>
+<li>OSX</li>
+</ul>
+
         </dd>
-        <dt id='height-property'>
+        <dt id='version-property'>
           <span class='signature'>
-            (Number)
+            (String)
             <b>
-              height
+              version
             </b>
           </span>
         </dt>
         <dd class='desc'>
-          the absolute height (in pixels) of the window 
+          the OS version 
         </dd>
-        <dt id='nativeObject-property'>
+        <dt id='osx-property'>
           <span class='signature'>
-            (Object)
+            (Boolean)
             <b>
-              nativeObject
+              osx
             </b>
           </span>
         </dt>
         <dd class='desc'>
-          a reference to the Native screen object. The exact type and API of this object will be platform-dependent. 
+          The host platform is Mac OS X 
         </dd>
       </dl>
-      <h2>Instance Events</h2>
-      <div class='event'>
-        <p class='signature'>
-          change
-        </p>
-        <div class='docstring'>
-  <p>A screen has been added, removed, or resized.</p>
-</div>
-<div class='tags'>
-</div>
-      </div>
     </div>
     <div id='footer'>
   November 20, 14 02:14:08 by
