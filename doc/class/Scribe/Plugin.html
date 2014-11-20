@@ -86,10 +86,11 @@ adLibrary.call(&#39;reportEvent&#39;, &#39;launch&#39;);</code></pre>
       <a href='#call-dynamic'>
         #
 (Object)
-<b>call</b><span>(args...)</span>
+<b>call</b><span>(fnName, args...)</span>
       </a>
     </span>
     <span class='desc'>
+      Calls the specified function. 
     </span>
   </li>
 </ul>
@@ -119,10 +120,27 @@ adLibrary.call(&#39;reportEvent&#39;, &#39;launch&#39;);</code></pre>
     <p class='signature' id='call-dynamic'>
       #
 (Object)
-<b>call</b><span>(args...)</span>
+<b>call</b><span>(fnName, args...)</span>
       <br>
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Calls the specified function. Any additional arguments
+provided will be forwarded as arguments to the function.</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>fnName</span>
+      <span class='type'>
+        (
+          <tt>String</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>the name of the function to call </span>
+    </li>
+  </ul>
   <h3>Returns:</h3>
   <ul class='return'>
     <li>
@@ -139,7 +157,7 @@ adLibrary.call(&#39;reportEvent&#39;, &#39;launch&#39;);</code></pre>
 </div>
     </div>
     <div id='footer'>
-  November 20, 14 03:15:13 by
+  November 20, 14 03:20:50 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
