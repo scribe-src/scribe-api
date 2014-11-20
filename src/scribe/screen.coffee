@@ -15,12 +15,12 @@ class Scribe.Screen
 
   # @property [Object] a reference to the Native screen object. The
   #   exact type and API of this object will be platform-dependent.
-  nativeScreenObject: null
+  nativeObject: null
 
   # @nodoc
   constructor: (opts={}) ->
-    if opts.nativeScreenObject?
-      @_nativeScreenObject = opts.nativeScreenObject
+    if opts.nativeObject?
+      @_nativeObject = opts.nativeObject
 
 do ->
   # Allow the Screen class to register handlers for global
@@ -29,9 +29,11 @@ do ->
 
   # Make some property lookups call "magic" getter/setter methods
   # that will be implemented by the Platform
-  Scribe.Mixins.GetterSetters.mixin(Scribe.Screen, ['all'])
   Scribe.Mixins.GetterSetters.mixin(Scribe.Screen.prototype, [
     'width'
     'height'
-    'nativeScreenObject'
+    'nativeObject'
   ])
+
+  # Magic getters/setters on static class properties
+  Scribe.Mixins.GetterSetters.mixin(Scribe.Screen, ['all'])

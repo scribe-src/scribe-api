@@ -81,7 +81,11 @@ class Scribe.Window
 
   # @property [Object] A reference to the native window object. The
   #   exact type and API of this object will be platform-dependent.
-  nativeWindowObject: null
+  nativeObject: null
+
+  # @property [Object] A reference to the Javascript global object from
+  #   the embedded WebView inside this Window.
+  jsGlobal: null
 
   # @property [Scribe.Engine] the Scribe.Engine instance that has been injected
   #   into the currently-loaded Javascript context.
@@ -103,8 +107,8 @@ class Scribe.Window
   constructor: (opts={}) ->
     Scribe.Mixins.Triggerable.mixin(@)
     Scribe.Mixins.Settable.mixin(@)
-    if opts.nativeWindowObject?
-      @_nativeWindowObject = opts.nativeWindowObject
+    if opts.nativeObject?
+      @_nativeObject = opts.nativeObject
     else
       @_createWindow(opts)
 
@@ -150,17 +154,18 @@ do ->
   # Make some property lookups call "magic" getter/setter methods
   # that will be implemented by the Platform
   Scribe.Mixins.GetterSetters.mixin(Scribe.Window.prototype, [
-    "fullscreen"
-    "title"
-    "closable"
-    "resizable"
-    "left"
-    "top"
-    "width"
-    "height"
-    "alpha"
-    "topmost"
-    "sameOriginPolicy"
-    "nativeWindowObject"
-    "visible"
+    'fullscreen'
+    'title'
+    'closable'
+    'resizable'
+    'left'
+    'top'
+    'width'
+    'height'
+    'alpha'
+    'topmost'
+    'sameOriginPolicy'
+    'nativeObject'
+    'visible'
+    'jsGlobal'
   ])
