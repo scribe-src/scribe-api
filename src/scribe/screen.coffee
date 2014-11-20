@@ -25,10 +25,12 @@ class Scribe.Screen
 do ->
   # Allow the Screen class to register handlers for global
   # Screen changes (like plugging in a new monitor)
+  # @nodoc
   Scribe.Mixins.Triggerable.mixin(Scribe.Screen)
 
   # Make some property lookups call "magic" getter/setter methods
   # that will be implemented by the Platform
+  # @nodoc
   Scribe.Mixins.GetterSetters.mixin(Scribe.Screen.prototype, [
     'width'
     'height'
@@ -36,4 +38,5 @@ do ->
   ])
 
   # Magic getters/setters on static class properties
+  # @nodoc
   Scribe.Mixins.GetterSetters.mixin(Scribe.Screen, ['all'])

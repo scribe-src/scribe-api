@@ -36,6 +36,7 @@ class Scribe.Engine
 do ->
   # Make some property lookups call "magic" getter/setter methods
   # that will be implemented by the Engine
+  # @nodoc
   Scribe.Mixins.GetterSetters.mixin(Scribe.Engine.prototype, [
     'nativeObject'
     'parent'
@@ -43,6 +44,7 @@ do ->
   ])
 
   # Magic getters/setters on static class properties
+  # @nodoc
   Scribe.Mixins.GetterSetters.mixin(Scribe.Engine, [
     'current'
   ])
