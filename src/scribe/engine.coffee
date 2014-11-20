@@ -1,5 +1,5 @@
 #
-# The Engine tracks the Javascript execution context and provides a
+# An Engine tracks a single Javascript execution context and provides a
 # few runtime fundamentals like `eval` and parent context tracking.
 #
 class Scribe.Engine
@@ -32,6 +32,11 @@ class Scribe.Engine
   # @return [Object] the serialized result
   eval: (jsCode) ->
     @_eval(jsCode)
+
+  # Starts a small Javascript REPL on stdin and blocks until
+  # the user runs `exit()`.
+  console: ->
+    @_console()
 
 do ->
   # Make some property lookups call "magic" getter/setter methods

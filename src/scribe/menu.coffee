@@ -9,7 +9,7 @@
 # @include Scribe.Mixins.Triggerable
 class Scribe.Menu
 
-  # Internal class for tracking MenuItems and SubMenus
+  # Internal class for tracking submenus
   # @nodoc
   class MenuItem
     label: null
