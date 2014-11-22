@@ -28,7 +28,6 @@ class Scribe
   @platform: null
 
   # Concatenates and prints the given `args`
-  # @return [void]
   @log: (args...) ->
     @engine.log.apply(@engine, arguments)
 
