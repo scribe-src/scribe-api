@@ -1,5 +1,5 @@
 DIST_FILES =              \
-  dist/index.js           \
+  dist/scribe.js          \
   dist/scribe/mixins/*.js \
   dist/scribe/app.js      \
   dist/scribe/platform.js \
@@ -19,9 +19,10 @@ init:
 
 clean:
 	rm -rf dist/
-	rm -rf docs
+	rm -rf doc/
 
 build: init
+
 	./node_modules/.bin/coffee -b -o dist/ -c src/
 	./node_modules/.bin/uglifyjs \
 		$(UGLIFY_OPTS) $(DIST_FILES) >> ./dist.js

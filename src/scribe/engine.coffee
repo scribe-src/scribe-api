@@ -33,16 +33,18 @@ class Scribe.Engine
   eval: (jsCode) ->
     @_eval(jsCode)
 
-  # Starts a small Javascript REPL on stdin and blocks until
-  # the user runs `exit()`.
-  console: ->
-    @_console()
+  # Starts a small Javascript REPL (with readline bindings!) on stdin
+  # and blocks until the user runs `exit()`.
+  #
+  # @return [void]
+  repl: ->
+    @_repl()
 
 do ->
   # Make some property lookups call "magic" getter/setter methods
   # that will be implemented by the Engine
   # @nodoc
-  Scribe.Mixins.GetterSetters.mixin(Scribe.Engine.prototype, [
+  Scribe.Mixins.MagicProperties.mixin(Scribe.Engine.prototype, [
     'nativeObject'
     'parent'
     'jsGlobal'
@@ -50,6 +52,6 @@ do ->
 
   # Magic getters/setters on static class properties
   # @nodoc
-  Scribe.Mixins.GetterSetters.mixin(Scribe.Engine, [
+  Scribe.Mixins.MagicProperties.mixin(Scribe.Engine, [
     'current'
   ])

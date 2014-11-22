@@ -20,7 +20,6 @@ class Scribe.Menu
   # to other menus (for Submenu navigation).
   #
   # @example:
-  #
   #  Scribe.Menu.create([
   #     {
   #       label: 'Scribe App',
@@ -70,6 +69,6 @@ class Scribe.Menu
 do ->
   # Make some property lookups call "magic" getter/setter methods
   # that will be implemented by the Menu
-  Scribe.Mixins.GetterSetters.mixin(Scribe.Menu.prototype, [
+  Scribe.Mixins.MagicProperties.mixin(Scribe.Menu.prototype, [
     'nativeObject'
   ])

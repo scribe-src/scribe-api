@@ -31,7 +31,7 @@ do ->
   # Make some property lookups call "magic" getter/setter methods
   # that will be implemented by the Platform
   # @nodoc
-  Scribe.Mixins.GetterSetters.mixin(Scribe.Screen.prototype, [
+  Scribe.Mixins.MagicProperties.mixin(Scribe.Screen.prototype, [
     'width'
     'height'
     'nativeObject'
@@ -39,4 +39,4 @@ do ->
 
   # Magic getters/setters on static class properties
   # @nodoc
-  Scribe.Mixins.GetterSetters.mixin(Scribe.Screen, ['all'])
+  Scribe.Mixins.MagicProperties.mixin(Scribe.Screen, ['all'])
