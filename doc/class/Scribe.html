@@ -3,172 +3,129 @@
   <head>
   <meta charset='UTF-8'>
   <title>Scribe Javascript API Documentation</title>
-  <script src='../../javascript/application.js'></script>
-  <script src='../../javascript/search.js'></script>
-  <link rel='stylesheet' href='../../stylesheets/application.css' type='text/css'>
+  <script src='../javascript/application.js'></script>
+  <script src='../javascript/search.js'></script>
+  <link rel='stylesheet' href='../stylesheets/application.css' type='text/css'>
 </head>
   <body>
-    <div id='base' data-path='../../'></div>
+    <div id='base' data-path='../'></div>
 <div id='header'>
   <div id='menu'>
-    <a href='../../extra/README.md.html' title='Scribe Javascript API'>
+    <a href='../extra/README.md.html' title='Scribe Javascript API'>
       Scribe Javascript API
     </a>
     &raquo;
-    <a href='../../alphabetical_index.html' title='Index'>
+    <a href='../alphabetical_index.html' title='Index'>
       Index
     </a>
     &raquo;
     <span class='title'>Scribe</span>
-    &raquo;
-    <span class='title'>Engine</span>
   </div>
 </div>
     <div id='content'>
       <h1>
         Class:
-        Scribe.Engine
+        Scribe
       </h1>
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>src&#47;scribe&#47;engine.coffee</td>
+          <td>src&#47;scribe.coffee</td>
         </tr>
       </table>
       <h2>Overview</h2>
       <div class='docstring'>
-  <p>An Engine tracks a single Javascript execution context and provides a
-few runtime fundamentals like <code>eval</code> and parent context tracking.</p>
+  <p>Top-level namespace for the Scribe API. This class is never actually
+instantiated; it holds a few static convenience properties and functions.</p>
 </div>
 <div class='tags'>
 </div>
       <h2>Class Properties</h2>
       <dl class='properties'>
-        <dt id='current-property'>
+        <dt id='app-property'>
+          <span class='signature'>
+            (Scribe.App)
+            <b>
+              app
+            </b>
+          </span>
+        </dt>
+        <dd class='desc'>
+          An alias for <code>Scribe.App.current</code> 
+        </dd>
+        <dt id='window-property'>
+          <span class='signature'>
+            (Scribe.Window)
+            <b>
+              window
+            </b>
+          </span>
+        </dt>
+        <dd class='desc'>
+          An alias for <code>Scribe.Window.current</code>. 
+        </dd>
+        <dt id='engine-property'>
           <span class='signature'>
             (Scribe.Engine)
             <b>
-              current
+              engine
             </b>
           </span>
         </dt>
         <dd class='desc'>
-          A reference to the Engine that is currently running the caller code. 
+          An alias for <code>Scribe.Engine.current</code>. 
+        </dd>
+        <dt id='platform-property'>
+          <span class='signature'>
+            (Scribe.Platform)
+            <b>
+              platform
+            </b>
+          </span>
+        </dt>
+        <dd class='desc'>
+          An alias for <code>Scribe.Platform.current</code>. 
         </dd>
       </dl>
-      <h2>Instance Properties</h2>
-      <dl class='properties'>
-        <dt id='parent-property'>
-          <span class='signature'>
-            (Scribe.Engine)
-            <b>
-              parent
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          A reference to the Engine that created this Engine. 
-        </dd>
-        <dt id='nativeObject-property'>
-          <span class='signature'>
-            (Object)
-            <b>
-              nativeObject
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          A reference to the native Engine object. The exact type and API of this object will be platform-dependent. 
-        </dd>
-        <dt id='jsGlobal-property'>
-          <span class='signature'>
-            (Object)
-            <b>
-              jsGlobal
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          A reference to the Javascript global object from the embedded WebView inside this Window. 
-        </dd>
-      </dl>
-      <h2>Instance Methods</h2>
+      <h2>Class Methods</h2>
       <ul class='summary'>
   <li>
     <span class='signature'>
-      <a href='#eval-dynamic'>
-        #
-(Object)
-<b>eval</b><span>(jsCode)</span>
+      <a href='#log-static'>
+        .
+(void)
+<b>log</b><span>(args...)</span>
       </a>
     </span>
     <span class='desc'>
-      Evaluates the given <code>jsCode</code> in the context of the Engine 
+      Concatenates and prints the given <code>args</code> 
     </span>
   </li>
   <li>
     <span class='signature'>
-      <a href='#repl-dynamic'>
-        #
+      <a href='#debugger-static'>
+        .
 (void)
-<b>repl</b><span>()</span>
+<b>debugger</b><span>()</span>
       </a>
     </span>
     <span class='desc'>
-      Starts a small Javascript REPL (with readline bindings!) on stdin and blocks until the user runs <code>exit()</code>.
+      Starts a Javascript REPL (with readline bindings!) on stdin and blocks until the user runs <code>exit()</code>.
 
     </span>
   </li>
 </ul>
-      <h2>Instance Method Details</h2>
+      <h2>Class Method Details</h2>
       <div class='methods'>
   <div class='method_details'>
-    <p class='signature' id='eval-dynamic'>
-      #
-(Object)
-<b>eval</b><span>(jsCode)</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <p>Evaluates the given <code>jsCode</code> in the context of the Engine</p>
-</div>
-<div class='tags'>
-  <h3>Parameters:</h3>
-  <ul class='param'>
-    <li>
-      <span class='name'>jsCode</span>
-      <span class='type'>
-        (
-          <tt>String</tt>
-        )
-      </span>
-      &mdash;
-      <span class='desc'>the Javascript to execute </span>
-    </li>
-  </ul>
-  <h3>Returns:</h3>
-  <ul class='return'>
-    <li>
-      <span class='type'></span>
-      (
-        <tt>Object</tt>
-      )
-      &mdash;
-      <span class='desc'>the serialized result </span>
-    </li>
-  </ul>
-</div>
-  </div>
-  <div class='method_details'>
-    <p class='signature' id='repl-dynamic'>
-      #
+    <p class='signature' id='log-static'>
+      .
 (void)
-<b>repl</b><span>()</span>
+<b>log</b><span>(args...)</span>
       <br>
     </p>
     <div class='docstring'>
-  <p>Starts a small Javascript REPL (with readline bindings!) on stdin
-and blocks until the user runs <code>exit()</code>.</p>
+  <p>Concatenates and prints the given <code>args</code></p>
 </div>
 <div class='tags'>
   <h3>Returns:</h3>
@@ -178,6 +135,20 @@ and blocks until the user runs <code>exit()</code>.</p>
       <tt>void</tt>
     </li>
   </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='debugger-static'>
+      .
+(void)
+<b>debugger</b><span>()</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Starts a Javascript REPL (with readline bindings!) on stdin and
+blocks until the user runs <code>exit()</code>.</p>
+</div>
+<div class='tags'>
 </div>
   </div>
 </div>

@@ -43,10 +43,9 @@
     <h4>
       
     </h4>
-    <pre><code class='coffeescript'>
-var adLibrary = Scribe.Plugin.load(&#39;GenericAds&#39;);
-adLibrary.call(&#39;init&#39;, &#39;AFB15610CCCEF1101&#39;);
-adLibrary.call(&#39;reportEvent&#39;, &#39;launch&#39;);</code></pre>
+    <pre><code class='coffeescript'>var adLibrary = Scribe.Plugin.load(&#39;GenericAds&#39;);
+adLibrary.init(&#39;AFB15610CCCEF1101&#39;);
+adLibrary.reportEvent(&#39;launch&#39;);</code></pre>
   </div>
 </div>
 <div class='tags'>
@@ -62,6 +61,8 @@ adLibrary.call(&#39;reportEvent&#39;, &#39;launch&#39;);</code></pre>
       </a>
     </span>
     <span class='desc'>
+      Loads the plugin or returns a cached reference to the loaded plugin.
+
     </span>
   </li>
 </ul>
@@ -103,7 +104,24 @@ adLibrary.call(&#39;reportEvent&#39;, &#39;launch&#39;);</code></pre>
 <b>load</b><span>(name)</span>
       <br>
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Loads the plugin or returns a cached reference to the
+loaded plugin.</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>name</span>
+      <span class='type'>
+        (
+          <tt>String</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>the name of the plugin to load </span>
+    </li>
+  </ul>
   <h3>Returns:</h3>
   <ul class='return'>
     <li>
@@ -157,7 +175,7 @@ provided will be forwarded as arguments to the function.</p>
 </div>
     </div>
     <div id='footer'>
-  November 20, 14 03:20:50 by
+  November 22, 14 17:02:38 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>

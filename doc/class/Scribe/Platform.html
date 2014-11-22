@@ -43,6 +43,17 @@
 </div>
       <h2>Class Properties</h2>
       <dl class='properties'>
+        <dt id='SUPPORTED-property'>
+          <span class='signature'>
+            (Array&lt;String&gt;)
+            <b>
+              SUPPORTED
+            </b>
+          </span>
+        </dt>
+        <dd class='desc'>
+          list of supported platforms 
+        </dd>
         <dt id='current-property'>
           <span class='signature'>
             (Scribe.Platform)
@@ -66,10 +77,7 @@
           </span>
         </dt>
         <dd class='desc'>
-          The name of the platform. One of: <ul>
-<li>OSX</li>
-</ul>
-
+          The operating system name. See the SUPPORTED class variable. 
         </dd>
         <dt id='version-property'>
           <span class='signature'>
@@ -82,21 +90,74 @@
         <dd class='desc'>
           the OS version 
         </dd>
-        <dt id='osx-property'>
-          <span class='signature'>
-            (Boolean)
-            <b>
-              osx
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          The host platform is Mac OS X 
-        </dd>
       </dl>
+      <h2>Instance Methods</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#is-dynamic'>
+        #
+(Boolean)
+<b>is</b><span>(name)</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Determine whether <code>name</code> matches the Platform <p>For accepted values see the SUPPORTED class variable.</p>
+    </span>
+  </li>
+</ul>
+      <h2>Instance Method Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='is-dynamic'>
+      #
+(Boolean)
+<b>is</b><span>(name)</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Determine whether <code>name</code> matches the Platform</p><p>For accepted values see the SUPPORTED class variable.</p>
+  <div class='examples'>
+    <h3>Examples:</h3>
+    <h4>
+      
+    </h4>
+    <pre><code class='coffeescript'>if Scribe.Platform.current.is(&#39;windows&#39;)
+   console.log(&#39;Nope!&#39;)
+   Scribe.app.exit(1)</code></pre>
+  </div>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>name</span>
+      <span class='type'>
+        (
+          <tt>String</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>the name to match </span>
+    </li>
+  </ul>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt>Boolean</tt>
+      )
+      &mdash;
+      <span class='desc'>whether <code>name</code> matches the Platform </span>
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
     </div>
     <div id='footer'>
-  November 20, 14 03:20:50 by
+  November 22, 14 17:02:38 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
