@@ -1,9 +1,3 @@
-# Bootstrap for injecting the high-level code in the Scribe API.
-
-# Stub the namespaces so that classes can just be defined
-
-@Scribe ?= {}
-@Scribe.Mixins ?= {}
 
 # @nodoc
 #
@@ -13,10 +7,10 @@
 # the prototype.
 #
 # For example, `window.height` is re-routed to `window._getHeight()`,
-# and likewise for `window.height = 5` and `window._setHeight(5)`.
+# and likewise for `window.height = 5` to `window._setHeight(5)`.
 #
 # @nodoc
-Scribe.Mixins.GetterSetters =
+Scribe.Mixins.MagicProperties =
 
   mixin: (instance, propNames) ->
 

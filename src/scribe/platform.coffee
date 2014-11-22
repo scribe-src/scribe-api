@@ -3,6 +3,15 @@
 #
 class Scribe.Platform
 
+  # @property [Array<String>] list of supported platforms
+  @SUPPORTED: [
+    'osx'
+    # 'windows'
+    # 'ios'
+    # 'linux'
+    # 'android'
+  ]
+
   # @property [Scribe.Platform]
   #
   # A reference to the host `Platform`
@@ -10,26 +19,22 @@ class Scribe.Platform
 
   # @property [String]
   #
-  # The name of the platform. One of:
-  #  - OSX
+  # The operating system name. See the SUPPORTED class variable.
   name: null
 
   # @property [String] the OS version
   version: null
 
-  # @property [Boolean] The host platform is Mac OS X
-  osx: false
-
-  # My todo list:
-
-  # ios: false
-
-  # iphone: false
-
-  # ipad: false
-
-  # windows: false
-
-  # linux: false
-
-  # android: false
+  # Determine whether `name` matches the Platform
+  #
+  # @example
+  #   if Scribe.Platform.current.is('windows')
+  #      console.log('Nope!')
+  #      Scribe.app.exit(1)
+  #
+  # For accepted values see the SUPPORTED class variable.
+  #
+  # @param [String] name the name to match
+  # @return [Boolean] whether `name` matches the Platform
+  is: (name) ->
+    @_is(name)

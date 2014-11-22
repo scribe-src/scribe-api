@@ -153,7 +153,7 @@ do ->
   # Make some property lookups call "magic" getter/setter methods
   # that will be implemented by the Platform
   # @nodoc
-  Scribe.Mixins.GetterSetters.mixin(Scribe.Window.prototype, [
+  Scribe.Mixins.MagicProperties.mixin(Scribe.Window.prototype, [
     'fullscreen'
     'title'
     'closable'
