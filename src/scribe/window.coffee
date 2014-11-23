@@ -93,7 +93,7 @@ class Scribe.Window
 
   # Creates a new Window in the native window manager
   #
-  # @param [Hash] opts the options hash
+  # @param [Object] opts the options object
   # @option opts [Boolean] fullscreen
   # @option opts [String] title
   # @option opts [Boolean] closable
