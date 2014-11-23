@@ -31,11 +31,21 @@ class Scribe.App
   # The arguments that were passed to our process
   arguments: []
 
-  # @property [Object] the environment variables
-  env: []
+  # @property [Object] a Hash of the environment variables
+  env: {}
 
   # Kills the application and returns `status`
   #
   # @param [Number] status the process status to return
   exit: (status) ->
     @_exit(status)
+
+do ->
+  # @nodoc
+  Scribe.Mixins.MagicProperties.mixin(Scribe.App.prototype, [
+    'env'
+    'cwd'
+    'exePath'
+    'identifier'
+    'name'
+  ])
