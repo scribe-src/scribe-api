@@ -3,6 +3,7 @@
 #
 class Scribe.App
 
+
   # @property [Scribe.App]
   #
   # A reference to the currently-running application
@@ -31,8 +32,17 @@ class Scribe.App
   # The arguments that were passed to our process
   arguments: []
 
-  # @property [Object] a Hash of the environment variables
-  env: {}
+  # Gets an environment variable.
+  # @property [String] varName the name of the environment variable to return
+  # @return [String] the specified environment variable
+  getEnv: (varName) ->
+    @_getEnv(varName)
+
+  # Gets an environment variable.
+  # @property [String] varName the name of the environment variable to set
+  # @property [String] value the value to set the variable to
+  setEnv: (varName, value) ->
+    @_setEnv(varName, value)
 
   # Kills the application and returns `status`
   #
@@ -43,9 +53,13 @@ class Scribe.App
 do ->
   # @nodoc
   Scribe.Mixins.MagicProperties.mixin(Scribe.App.prototype, [
-    'env'
     'cwd'
     'exePath'
     'identifier'
     'name'
+  ])
+
+  # @nodoc
+  Scribe.Mixins.MagicProperties.mixin(Scribe.App.Environment.prototype, [
+    'all'
   ])
