@@ -40,6 +40,11 @@ class Scribe.Engine
   repl: ->
     @_repl()
 
+  # @nodoc
+  constructor: (opts={}) ->
+    if opts.nativeObject?
+      @_nativeObject = opts.nativeObject
+
 do ->
   # Make some property lookups call "magic" getter/setter methods
   # that will be implemented by the Engine
