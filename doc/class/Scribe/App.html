@@ -112,20 +112,33 @@
         <dd class='desc'>
           The arguments that were passed to our process 
         </dd>
-        <dt id='env-property'>
-          <span class='signature'>
-            (Object)
-            <b>
-              env
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          a Hash of the environment variables 
-        </dd>
       </dl>
       <h2>Instance Methods</h2>
       <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#getEnv-dynamic'>
+        #
+(String)
+<b>getEnv</b><span>(varName)</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Gets an environment variable. 
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#setEnv-dynamic'>
+        #
+(void)
+<b>setEnv</b><span>(varName, value)</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Gets an environment variable. 
+    </span>
+  </li>
   <li>
     <span class='signature'>
       <a href='#exit-dynamic'>
@@ -141,6 +154,46 @@
 </ul>
       <h2>Instance Method Details</h2>
       <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='getEnv-dynamic'>
+      #
+(String)
+<b>getEnv</b><span>(varName)</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Gets an environment variable.
+varName the name of the environment variable to return</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt>String</tt>
+      )
+      &mdash;
+      <span class='desc'>the specified environment variable </span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='setEnv-dynamic'>
+      #
+(void)
+<b>setEnv</b><span>(varName, value)</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Gets an environment variable.
+varName the name of the environment variable to set
+value the value to set the variable to</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
   <div class='method_details'>
     <p class='signature' id='exit-dynamic'>
       #
@@ -170,7 +223,7 @@
 </div>
     </div>
     <div id='footer'>
-  November 23, 14 16:17:33 by
+  November 23, 14 17:03:02 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
