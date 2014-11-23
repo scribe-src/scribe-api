@@ -38,7 +38,7 @@ class Scribe.App
   getEnv: (varName) ->
     @_getEnv(varName)
 
-  # Gets an environment variable.
+  # Sets an environment variable.
   # @property [String] varName the name of the environment variable to set
   # @property [String] value the value to set the variable to
   setEnv: (varName, value) ->
@@ -59,7 +59,3 @@ do ->
     'name'
   ])
 
-  # @nodoc
-  Scribe.Mixins.MagicProperties.mixin(Scribe.App.Environment.prototype, [
-    'all'
-  ])
