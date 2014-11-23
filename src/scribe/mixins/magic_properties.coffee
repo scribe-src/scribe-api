@@ -44,3 +44,13 @@ Scribe.Mixins.MagicProperties =
             catch e
               e.message = "_set#{capitalize prop}() failed:\n #{e.message}"
               throw e
+
+do ->
+
+  #
+  # Scribe.initialize relies on MagicProperties, so now that has been
+  # defined and we can install ourselves on Scribe.
+  #
+  # @nodoc
+  Scribe.initialize()
+  delete Scribe.initialize

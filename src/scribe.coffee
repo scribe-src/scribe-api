@@ -2,7 +2,7 @@
 # Top-level namespace for the Scribe API. This class is never actually
 # instantiated; it holds a few static convenience properties and functions.
 #
-class Scribe
+class @Scribe
 
   #
   # Stub nested namespaces
@@ -52,12 +52,17 @@ class Scribe
   # @nodoc
   @_getPlatorm: -> @Platform.current
 
-do ->
-  # Make some property lookups call "magic" getter/setter methods
+  # Make some property lookups call "magic" getter/setter methods.
+  #
+  # This is defined in an "initialize" method that gets called
+  # once all its dependencies are loaded.
+  #
   # @nodoc
-   Scribe.Mixins.MagicProperties.mixin(Scribe, [
-    'app'
-    'window'
-    'engine'
-    'platform'
-  ])
+  @initialize: ->
+
+    Scribe.Mixins.MagicProperties.mixin(Scribe, [
+      'app'
+      'window'
+      'engine'
+      'platform'
+    ])
