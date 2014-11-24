@@ -50,7 +50,7 @@ class @Scribe
   @_getEngine: -> @Engine.current
 
   # @nodoc
-  @_getPlatorm: -> @Platform.current
+  @_getPlatform: -> @Platform.current
 
   # Make some property lookups call "magic" getter/setter methods.
   #
