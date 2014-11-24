@@ -27,10 +27,18 @@ class Scribe.App
   # @property [String] the current working directory
   cwd: null
 
+  # @property [String, null] the contents of the badge label on the app's dock icon;
+  #   when this is `null`, the badge is hidden
+  badge: null
+
+  # @property [String, null] a URL (or data URL) to display in the app's dock icon;
+  #   when this is `null`, the icon defaults to the URL specified in the Scribe manifest.
+  icon: null
+
   # @property [Array<String>]
   #
   # The arguments that were passed to our process
-  arguments: []
+  arguments: null
 
   # Gets an environment variable.
   # @property [String] varName the name of the environment variable to return
@@ -44,6 +52,10 @@ class Scribe.App
   setEnv: (varName, value) ->
     @_setEnv(varName, value)
 
+  # Bounces the app icon in the dock, if possible.
+  bounce: ->
+    @_bounce()
+
   # Kills the application and returns `status`
   #
   # @param [Number] status the process status to return
@@ -56,6 +68,9 @@ do ->
     'cwd'
     'exePath'
     'identifier'
+    'arguments'
     'name'
+    'badge'
+    'icon'
   ])
 

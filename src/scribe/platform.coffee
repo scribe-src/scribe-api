@@ -37,4 +37,13 @@ class Scribe.Platform
   # @param [String] name the name to match
   # @return [Boolean] whether `name` matches the Platform
   is: (name) ->
-    @_is(name)
+    !!@name.match(name)
+
+do ->
+  # Make some property lookups call "magic" getter/setter methods
+  # that will be implemented by the Engine
+  # @nodoc
+  Scribe.Mixins.MagicProperties.mixin(Scribe.Platform.prototype, [
+    'name'
+    'version'
+  ])
