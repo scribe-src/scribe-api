@@ -54,9 +54,3 @@ do ->
     'parent'
     'jsGlobal'
   ])
-
-  # Magic getters/setters on static class properties
-  # @nodoc
-  Scribe.Mixins.MagicProperties.mixin(Scribe.Engine, [
-    'current'
-  ])
