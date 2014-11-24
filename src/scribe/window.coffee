@@ -156,6 +156,7 @@ do ->
   Scribe.Mixins.MagicProperties.mixin(Scribe.Window.prototype, [
     'fullscreen'
     'title'
+    'engine'
     'closable'
     'resizable'
     'left'
