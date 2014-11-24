@@ -1,12 +1,13 @@
-DIST_FILES =              \
-  dist/scribe.js          \
-  dist/scribe/mixins/*.js \
-  dist/scribe/app.js      \
-  dist/scribe/platform.js \
-  dist/scribe/plugin.js   \
-  dist/scribe/engine.js   \
-  dist/scribe/menu.js     \
-  dist/scribe/screen.js   \
+DIST_FILES =               \
+  dist/scribe.js           \
+  dist/scribe/mixins/*.js  \
+  dist/scribe/app.js       \
+  dist/scribe/platform.js  \
+  dist/scribe/plugin.js    \
+  dist/scribe/engine.js    \
+  dist/scribe/menu.js      \
+  dist/scribe/screen.js    \
+  dist/scribe/dock_icon.js \
   dist/scribe/window.js
 
 JASMINE_CLI=./node_modules/.bin/jasmine-node
