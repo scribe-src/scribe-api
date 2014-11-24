@@ -52,6 +52,10 @@ class Scribe.App
   setEnv: (varName, value) ->
     @_setEnv(varName, value)
 
+  # Bounces the app icon in the dock, if possible.
+  bounce: ->
+    @_bounce()
+
   # Kills the application and returns `status`
   #
   # @param [Number] status the process status to return
