@@ -3,12 +3,12 @@
 #
 class Scribe.DockIcon
 
-  # @property [String, null] a URLto display in the DockIcon; when this is
+  # @property [String, null] a URL to display in the DockIcon; when this is
   #   `null`, the icon defaults to the URL specified in the Scribe manifest.
   url: null
 
   # @property [String, null] the contents of the badge label on the DockIcon;
-  #   when this is `null`, the badge is hidden
+  #   when this is `null`, the badge is hidden.
   badge: null
 
   # @property [Scribe.Menu, null] the right-click context menu associated
