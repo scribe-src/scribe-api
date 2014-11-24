@@ -101,27 +101,16 @@
         <dd class='desc'>
           the current working directory 
         </dd>
-        <dt id='badge-property'>
+        <dt id='dockIcon-property'>
           <span class='signature'>
-            (String, null)
+            (Scribe.DockIcon)
             <b>
-              badge
+              dockIcon
             </b>
           </span>
         </dt>
         <dd class='desc'>
-          the contents of the badge label on the app&#39;s dock icon; when this is <code>null</code>, the badge is hidden 
-        </dd>
-        <dt id='icon-property'>
-          <span class='signature'>
-            (String, null)
-            <b>
-              icon
-            </b>
-          </span>
-        </dt>
-        <dd class='desc'>
-          a URL (or data URL) to display in the app&#39;s dock icon; when this is <code>null</code>, the icon defaults to the URL specified in the Scribe manifest. 
+          the app&#39;s DockIcon 
         </dd>
         <dt id='arguments-property'>
           <span class='signature'>
@@ -159,18 +148,6 @@
     </span>
     <span class='desc'>
       Sets an environment variable. 
-    </span>
-  </li>
-  <li>
-    <span class='signature'>
-      <a href='#bounce-dynamic'>
-        #
-(void)
-<b>bounce</b><span>()</span>
-      </a>
-    </span>
-    <span class='desc'>
-      Bounces the app icon in the dock, if possible. 
     </span>
   </li>
   <li>
@@ -229,19 +206,6 @@ value the value to set the variable to</p>
 </div>
   </div>
   <div class='method_details'>
-    <p class='signature' id='bounce-dynamic'>
-      #
-(void)
-<b>bounce</b><span>()</span>
-      <br>
-    </p>
-    <div class='docstring'>
-  <p>Bounces the app icon in the dock, if possible.</p>
-</div>
-<div class='tags'>
-</div>
-  </div>
-  <div class='method_details'>
     <p class='signature' id='exit-dynamic'>
       #
 (void)
@@ -270,7 +234,7 @@ value the value to set the variable to</p>
 </div>
     </div>
     <div id='footer'>
-  November 24, 14 00:52:55 by
+  November 24, 14 02:42:45 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
