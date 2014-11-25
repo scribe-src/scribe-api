@@ -42,6 +42,7 @@ docs:
 dist: clean init build
 
 publish: dist
+	# todo: ensure dist gets committed!
 	git push origin master
 	git checkout gh-pages	
 	git merge master -m "Merge in latest master" -S
