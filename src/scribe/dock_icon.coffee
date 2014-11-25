@@ -26,6 +26,6 @@ do ->
   # @nodoc
   Scribe.Mixins.MagicProperties.mixin(Scribe.DockIcon.prototype, [
     'badge'
-    'icon'
+    'url'
     'contextMenu'
   ])
