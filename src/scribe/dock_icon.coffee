@@ -19,6 +19,9 @@ class Scribe.DockIcon
   bounce: ->
     @_bounce()
 
+  constructor: ->
+    @_create?.apply(@, arguments)
+
 do ->
   # @nodoc
   Scribe.Mixins.MagicProperties.mixin(Scribe.DockIcon.prototype, [
