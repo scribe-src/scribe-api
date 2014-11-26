@@ -19,7 +19,7 @@ class Scribe.Menu
   # Creates a new Menu which can contain MenuItems that point
   # to other menus (for Submenu navigation).
   #
-  # @example:
+  # @example
   #  Scribe.Menu.create([
   #     {
   #       label: 'Scribe App',
