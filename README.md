@@ -1,7 +1,5 @@
-[![Build Status](https://travis-ci.org/scribe-src/scribe-api.svg)](https://travis-ci.org/scribe-src/scribe-api)
-
-### Scribe Javascript API
-
+scribe-api [![Build Status](https://travis-ci.org/scribe-src/scribe-api.svg)](https://travis-ci.org/scribe-src/scribe-api)
+==
 The `scribe-api` module implements Scribe's high-level Javascript interfaces, like `Scribe.Window` and `Scribe.Menu`. It is used to generate documentation and define common shared Javascript functionality among the Scribe platforms (event handling, OOP, and utility functions); the actual implementations of many functions are left for the `scribe-platform-*` projects. The `dist/dist.js` file is compiled into every Scribe binary and is evaluated by the engine before any platform-specific patches are added.
 
 The APIs are meant to be short and sweet. Interfaces are written in [Coffeescript](http://coffeescript.org/) and HTML documentation is generated with [Codo](https://github.com/coffeedoc/codo).
