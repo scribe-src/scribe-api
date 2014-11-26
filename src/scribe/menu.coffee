@@ -19,21 +19,21 @@ class Scribe.Menu
   # Creates a new Menu which can contain MenuItems that point
   # to other menus (for Submenu navigation).
   #
-  # @example
-  #  Scribe.Menu.create([
-  #     {
-  #       label: 'Scribe App',
-  #       action: function() {}
-  #     },
-  #     {
-  #       label: 'File',
-  #       action: function() {}
-  #     },
-  #     {
-  #       label: 'Window',
-  #       action: function() {}
-  #     },
-  #  ])
+  # @example Create a menu
+  #   Scribe.Menu.create([
+  #      {
+  #        label: 'Scribe App',
+  #        action: function() {}
+  #      },
+  #      {
+  #        label: 'File',
+  #        action: function() {}
+  #      },
+  #      {
+  #        label: 'Window',
+  #        action: function() {}
+  #      },
+  #   ])
   #
   # @param [Hash] opts the options hash
   # @option opts [String] title
