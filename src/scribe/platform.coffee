@@ -6,6 +6,7 @@ class Scribe.Platform
   # @property [Array<String>] list of supported platforms
   @SUPPORTED: [
     'osx'
+    # my todo list:
     # 'windows'
     # 'ios'
     # 'linux'
@@ -22,7 +23,9 @@ class Scribe.Platform
   # The operating system name. See the SUPPORTED class variable.
   name: null
 
-  # @property [String] the OS version
+  # @property [String]
+  #
+  # The operating system version.
   version: null
 
   # Determine whether `name` matches the Platform
@@ -39,7 +42,28 @@ class Scribe.Platform
   is: (name) ->
     !!@name.match(name)
 
+  # Runs a shell command in the background.
+  #
+  # @param [String] cmd the shell command to run
+  # @param [Object] opts the options hash
+  # @option opts 'done' [Function] the callback function that accepts
+  #   the parameters `stdout, stderr`
+  exec: (cmd, opts={}) ->
+    @_exec(cmd, opts)
+
+  # Runs a shell command and blocks until completion
+  #
+  # @param [String] cmd the shell command to run
+  # @param [Object] opts the options hash
+  # @option opts 'done' [Function] the callback function that accepts
+  #   the parameters `stdout, stderr`
+  # @return [Object] an Object with `stdout` and `stderr` keys that
+  #   point to Strings containing the buffer contents
+  execSync: (cmd, opts={}) ->
+    @_execSync(cmd, opts)
+
 do ->
+
   # Make some property lookups call "magic" getter/setter methods
   # that will be implemented by the Engine
   # @nodoc
