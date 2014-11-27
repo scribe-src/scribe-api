@@ -88,7 +88,7 @@
           </span>
         </dt>
         <dd class='desc'>
-          the OS version 
+          The operating system version. 
         </dd>
       </dl>
       <h2>Instance Methods</h2>
@@ -103,6 +103,30 @@
     </span>
     <span class='desc'>
       Determine whether <code>name</code> matches the Platform <p>For accepted values see the SUPPORTED class variable.</p>
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#exec-dynamic'>
+        #
+(void)
+<b>exec</b><span>(cmd, opts = {})</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Runs a shell command in the background. 
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#execSync-dynamic'>
+        #
+(Object)
+<b>execSync</b><span>(cmd, opts = {})</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Runs a shell command and blocks until completion 
     </span>
   </li>
 </ul>
@@ -154,10 +178,125 @@
   </ul>
 </div>
   </div>
+  <div class='method_details'>
+    <p class='signature' id='exec-dynamic'>
+      #
+(void)
+<b>exec</b><span>(cmd, opts = {})</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Runs a shell command in the background.</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>cmd</span>
+      <span class='type'>
+        (
+          <tt>String</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>the shell command to run </span>
+    </li>
+    <li>
+      <span class='name'>opts</span>
+      <span class='type'>
+        (
+          <tt>Object</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>the options hash </span>
+    </li>
+  </ul>
+  <h3>
+    Options Hash:
+    (opts):
+  </h3>
+  <ul class='options'>
+    <li>
+      <span class='name'>&#39;done&#39;</span>
+      <span class='type'>
+        (
+          <tt>Function</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>the callback function that accepts the parameters <code>stdout, stderr</code> </span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='execSync-dynamic'>
+      #
+(Object)
+<b>execSync</b><span>(cmd, opts = {})</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Runs a shell command and blocks until completion</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>cmd</span>
+      <span class='type'>
+        (
+          <tt>String</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>the shell command to run </span>
+    </li>
+    <li>
+      <span class='name'>opts</span>
+      <span class='type'>
+        (
+          <tt>Object</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>the options hash </span>
+    </li>
+  </ul>
+  <h3>
+    Options Hash:
+    (opts):
+  </h3>
+  <ul class='options'>
+    <li>
+      <span class='name'>&#39;done&#39;</span>
+      <span class='type'>
+        (
+          <tt>Function</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>the callback function that accepts the parameters <code>stdout, stderr</code> </span>
+    </li>
+  </ul>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt>Object</tt>
+      )
+      &mdash;
+      <span class='desc'>an Object with <code>stdout</code> and <code>stderr</code> keys that point to Strings containing the buffer contents </span>
+    </li>
+  </ul>
+</div>
+  </div>
 </div>
     </div>
     <div id='footer'>
-  November 27, 14 01:31:36 by
+  November 27, 14 01:41:57 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
