@@ -132,20 +132,32 @@ are missing.</p>
     </p>
     <div class='docstring'>
   <p>Creates a new Menu which can contain MenuItems that point
-to other menus (for Submenu navigation).</p><p> Scribe.Menu.create([
-    {
-      label: &#39;Scribe App&#39;,
-      action: function() {}
-    },
-    {
-      label: &#39;File&#39;,
-      action: function() {}
-    },
-    {
-      label: &#39;Window&#39;,
-      action: function() {}
-    },
- ])</p>
+to other menus (for Submenu navigation).</p>
+  <div class='examples'>
+    <h3>Examples:</h3>
+    <h4>
+      Create a menu
+    </h4>
+    <pre><code class='coffeescript'>Scribe.Menu.create([
+   {
+     label: &#39;Scribe App&#39;,
+     shortcut: &#39;super-F&#39;,
+     action: function() {},
+     children: [
+       {...},
+       {...}
+     ]
+   },
+   {
+     label: &#39;File&#39;,
+     action: function() {}
+   },
+   {
+     label: &#39;Window&#39;,
+     action: function() {}
+   }
+])</code></pre>
+  </div>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -264,7 +276,7 @@ has no effect.</p>
 </div>
     </div>
     <div id='footer'>
-  November 26, 14 16:45:19 by
+  November 27, 14 01:31:36 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>

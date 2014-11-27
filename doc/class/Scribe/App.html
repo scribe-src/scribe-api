@@ -101,11 +101,11 @@
         <dd class='desc'>
           the current working directory 
         </dd>
-        <dt id='dockIcon-property'>
+        <dt id='icon-property'>
           <span class='signature'>
             (Scribe.DockIcon)
             <b>
-              dockIcon
+              icon
             </b>
           </span>
         </dt>
@@ -142,7 +142,7 @@
     <span class='signature'>
       <a href='#setEnv-dynamic'>
         #
-(void)
+(Boolean)
 <b>setEnv</b><span>(varName, value)</span>
       </a>
     </span>
@@ -193,7 +193,7 @@ varName the name of the environment variable to return</p>
   <div class='method_details'>
     <p class='signature' id='setEnv-dynamic'>
       #
-(void)
+(Boolean)
 <b>setEnv</b><span>(varName, value)</span>
       <br>
     </p>
@@ -203,6 +203,17 @@ varName the name of the environment variable to set
 value the value to set the variable to</p>
 </div>
 <div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt>Boolean</tt>
+      )
+      &mdash;
+      <span class='desc'>environment variable was set successfully </span>
+    </li>
+  </ul>
 </div>
   </div>
   <div class='method_details'>
@@ -234,7 +245,7 @@ value the value to set the variable to</p>
 </div>
     </div>
     <div id='footer'>
-  November 26, 14 16:45:19 by
+  November 27, 14 01:31:36 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
