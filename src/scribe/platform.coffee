@@ -3,7 +3,12 @@
 #
 class Scribe.Platform
 
-  # @property [Array<String>] list of supported platforms
+  # @property [Array<String>]
+  #
+  # A list of supported platforms:
+  # - `osx`
+  # - `ios`
+  #
   @SUPPORTED: [
     'osx'
     # my todo list:
