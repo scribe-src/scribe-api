@@ -63,7 +63,7 @@
           </span>
         </dt>
         <dd class='desc'>
-          A reference to the host <code>Platform</code> 
+          A reference to the host&#39;s <code>Platform</code> 
         </dd>
       </dl>
       <h2>Instance Properties</h2>
@@ -126,7 +126,7 @@
       </a>
     </span>
     <span class='desc'>
-      Runs a shell command and blocks until completion 
+      Runs a shell command, blocks until completion, and returns the output. 
     </span>
   </li>
 </ul>
@@ -146,9 +146,10 @@
     <h4>
       
     </h4>
-    <pre><code class='coffeescript'>if Scribe.Platform.current.is(&#39;windows&#39;)
-   console.log(&#39;Nope!&#39;)
-   Scribe.app.exit(1)</code></pre>
+    <pre><code class='coffeescript'>if Scribe.Platform.current.is(&#39;windows&#39;) {
+   console.log(&#39;Nope!&#39;);
+   Scribe.app.exit(1);
+}</code></pre>
   </div>
 </div>
 <div class='tags'>
@@ -238,7 +239,7 @@
       <br>
     </p>
     <div class='docstring'>
-  <p>Runs a shell command and blocks until completion</p>
+  <p>Runs a shell command, blocks until completion, and returns the output.</p>
 </div>
 <div class='tags'>
   <h3>Parameters:</h3>
@@ -296,7 +297,7 @@
 </div>
     </div>
     <div id='footer'>
-  November 27, 14 01:41:57 by
+  November 27, 14 01:44:29 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
