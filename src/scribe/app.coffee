@@ -28,7 +28,7 @@ class Scribe.App
   cwd: null
 
   # @property [Scribe.DockIcon] the app's DockIcon
-  dockIcon: null
+  icon: null
 
   # @property [Array<String>]
   #
@@ -44,6 +44,7 @@ class Scribe.App
   # Sets an environment variable.
   # @property [String] varName the name of the environment variable to set
   # @property [String] value the value to set the variable to
+  # @return [Boolean] environment variable was set successfully
   setEnv: (varName, value) ->
     @_setEnv(varName, value)
 

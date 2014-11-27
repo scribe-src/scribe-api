@@ -5,6 +5,7 @@ class Scribe.DockIcon
 
   # @property [String, null] a URL to display in the DockIcon; when this is
   #   `null`, the icon defaults to the URL specified in the Scribe manifest.
+  #   Setting this property updates the icon immediately.
   url: null
 
   # @property [String, null] the contents of the badge label on the DockIcon;
