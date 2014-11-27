@@ -15,7 +15,7 @@ class Scribe.Platform
 
   # @property [Scribe.Platform]
   #
-  # A reference to the host `Platform`
+  # A reference to the host's `Platform`
   @current: null
 
   # @property [String]
@@ -31,9 +31,10 @@ class Scribe.Platform
   # Determine whether `name` matches the Platform
   #
   # @example
-  #   if Scribe.Platform.current.is('windows')
-  #      console.log('Nope!')
-  #      Scribe.app.exit(1)
+  #   if Scribe.Platform.current.is('windows') {
+  #      console.log('Nope!');
+  #      Scribe.app.exit(1);
+  #   }
   #
   # For accepted values see the SUPPORTED class variable.
   #
@@ -51,7 +52,7 @@ class Scribe.Platform
   exec: (cmd, opts={}) ->
     @_exec(cmd, opts)
 
-  # Runs a shell command and blocks until completion
+  # Runs a shell command, blocks until completion, and returns the output.
   #
   # @param [String] cmd the shell command to run
   # @param [Object] opts the options hash
