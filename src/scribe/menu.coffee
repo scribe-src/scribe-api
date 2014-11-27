@@ -9,11 +9,18 @@
 # @include Scribe.Mixins.Triggerable
 class Scribe.Menu
 
-  # Internal class for tracking submenus
-  # @nodoc
-  class MenuItem
+  # A single item in a menu.
+  class @Item
+
+    # @property [String] label
     label: null
+
+    # @property [Array<Scribe.Menu.Item>] array of submenu items
     children: []
+
+    # @property [String] a shortcut to assign
+    shortcut: null
+
     action: ->
 
   # Creates a new Menu which can contain MenuItems that point
@@ -23,7 +30,12 @@ class Scribe.Menu
   #   Scribe.Menu.create([
   #      {
   #        label: 'Scribe App',
-  #        action: function() {}
+  #        shortcut: 'super-F',
+  #        action: function() {},
+  #        children: [
+  #          {...},
+  #          {...}
+  #        ]
   #      },
   #      {
   #        label: 'File',
@@ -32,7 +44,7 @@ class Scribe.Menu
   #      {
   #        label: 'Window',
   #        action: function() {}
-  #      },
+  #      }
   #   ])
   #
   # @param [Hash] opts the options hash

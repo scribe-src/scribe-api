@@ -61,5 +61,5 @@ do ->
     'identifier'
     'arguments'
     'name'
-    'icon'
+    'dockIcon'
   ])
