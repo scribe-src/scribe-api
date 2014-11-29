@@ -9,44 +9,6 @@
 # @include Scribe.Mixins.Triggerable
 class Scribe.Menu
 
-  # A single item in a menu.
-  class @Item
-
-    # @property [String] label
-    label: null
-
-    # @property [Array<Scribe.Menu.Item>] array of submenu items
-    children: []
-
-    # @property [String] a shortcut to assign
-    shortcut: null
-
-    action: ->
-
-  # Creates a new Menu which can contain MenuItems that point
-  # to other menus (for Submenu navigation).
-  #
-  # @example Create a menu
-  #   Scribe.Menu.create([
-  #      {
-  #        label: 'Scribe App',
-  #        shortcut: 'super-F',
-  #        action: function() {},
-  #        children: [
-  #          {...},
-  #          {...}
-  #        ]
-  #      },
-  #      {
-  #        label: 'File',
-  #        action: function() {}
-  #      },
-  #      {
-  #        label: 'Window',
-  #        action: function() {}
-  #      }
-  #   ])
-  #
   # @param [Hash] opts the options hash
   # @option opts [String] title
   @create: (items, opts) ->
