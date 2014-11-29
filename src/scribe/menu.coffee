@@ -9,8 +9,33 @@
 # @include Scribe.Mixins.Triggerable
 class Scribe.Menu
 
+  # Creates a new Menu which can contain MenuItems that point
+  # to other menus (for Submenu navigation).
+  #
   # @param [Hash] opts the options hash
   # @option opts [String] title
+  #
+  # @example Create a menu
+  #   Scribe.Menu.create([
+  #      {
+  #        label: 'Scribe App',
+  #        shortcut: 'super-F',
+  #        action: function() {},
+  #        children: [
+  #          {...},
+  #          {...}
+  #        ]
+  #      },
+  #      {
+  #        label: 'File',
+  #        action: function() {}
+  #      },
+  #      {
+  #        label: 'Window',
+  #        action: function() {}
+  #      }
+  #   ])
+  #
   @create: (items, opts) ->
     new @(items, opts)
 
