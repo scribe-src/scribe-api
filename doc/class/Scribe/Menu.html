@@ -62,6 +62,8 @@ are missing.</p>
       </a>
     </span>
     <span class='desc'>
+      Creates a new Menu which can contain MenuItems that point to other menus (for Submenu navigation).
+
     </span>
   </li>
 </ul>
@@ -128,7 +130,36 @@ are missing.</p>
 <b>create</b><span>(items, opts)</span>
       <br>
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Creates a new Menu which can contain MenuItems that point
+to other menus (for Submenu navigation).</p>
+  <div class='examples'>
+    <h3>Examples:</h3>
+    <h4>
+      Create a menu
+    </h4>
+    <pre><code class='coffeescript'>Scribe.Menu.create([
+   {
+     label: &#39;Scribe App&#39;,
+     shortcut: &#39;super-F&#39;,
+     action: function() {},
+     children: [
+       {...},
+       {...}
+     ]
+   },
+   {
+     label: &#39;File&#39;,
+     action: function() {}
+   },
+   {
+     label: &#39;Window&#39;,
+     action: function() {}
+   }
+])</code></pre>
+  </div>
+</div>
+<div class='tags'>
   <h3>Parameters:</h3>
   <ul class='param'>
     <li>
@@ -245,7 +276,7 @@ has no effect.</p>
 </div>
     </div>
     <div id='footer'>
-  November 29, 14 11:25:35 by
+  November 29, 14 11:31:04 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
