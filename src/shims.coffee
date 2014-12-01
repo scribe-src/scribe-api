@@ -33,7 +33,7 @@ global.open = (url, name='', opts={}) ->
        (name.charAt(0) is "_" and global[name.slice(1)] instanceof global.Window)))
     # run the original open() method on any arguments passed
     if openOriginal?
-      openOriginal.apply global, arguments
+      openOriginal.apply(global, Array::slice.call(arguments))
     else
       global[name.slice(1)].location = url
   else
