@@ -32,12 +32,15 @@ global.open = (url, name='', opts={}) ->
   if (Scribe.Window.current and (name is "_self" or
        (name.charAt(0) is "_" and global[name.slice(1)] instanceof global.Window)))
     # run the original open() method on any arguments passed
+    otherWindow = global[name.slice(1)]
     if openOriginal?
       openOriginal.apply(global, Array::slice.call(arguments))
     else
-      global[name.slice(1)].location = url
+      otherWindow.location = url
+    otherWindow
   else
     opts = params(opts) if typeof opts is "string"
     opts.url = url
     win = new Scribe.Window(opts)
     win.show()
+    win
