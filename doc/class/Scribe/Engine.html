@@ -56,6 +56,21 @@ few runtime fundamentals like <code>eval</code> and parent context tracking.</p>
           A reference to the Engine that is currently running the caller code. 
         </dd>
       </dl>
+      <h2>Class Methods</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#broadcastMessage-static'>
+        .
+(void)
+<b>broadcastMessage</b><span>(message)</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Broadcast a message to all alive Engines 
+    </span>
+  </li>
+</ul>
       <h2>Instance Properties</h2>
       <dl class='properties'>
         <dt id='parent-property'>
@@ -120,6 +135,35 @@ few runtime fundamentals like <code>eval</code> and parent context tracking.</p>
     </span>
   </li>
 </ul>
+      <h2>Class Method Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='broadcastMessage-static'>
+      .
+(void)
+<b>broadcastMessage</b><span>(message)</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Broadcast a message to all alive Engines</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>message</span>
+      <span class='type'>
+        (
+          <tt>String</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>the message to send to all Engines </span>
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
       <h2>Instance Method Details</h2>
       <div class='methods'>
   <div class='method_details'>
@@ -183,7 +227,7 @@ and blocks until the user runs <code>exit()</code>.</p>
 </div>
     </div>
     <div id='footer'>
-  November 29, 14 11:31:04 by
+  November 30, 14 21:06:10 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>

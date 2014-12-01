@@ -43,9 +43,17 @@
     <h4>
       
     </h4>
-    <pre><code class='coffeescript'>var adLibrary = Scribe.Plugin.load(&#39;GenericAds&#39;);
-adLibrary.init(&#39;AFB15610CCCEF1101&#39;);
-adLibrary.reportEvent(&#39;launch&#39;);</code></pre>
+    <pre><code class='coffeescript'>Scribe.Plugin.GenericAds.init(&#39;AFB15610CCCEF1101&#39;);
+Scribe.Plugin.GenericAds.reportEvent(&#39;launch&#39;);
+
+var hotKey = new Scribe.Plugin.HotKey.register(
+  &#39;ctrl-alt-shift-x&#39;,
+  function() {
+    alert(&#39;lalalala!&#39;)  
+  }
+);
+hotKey.unregister();
+&#47;&#47; or Scribe.Plugin.HotKey.unregister(&#39;ctrl-alt-shift&#39;)</code></pre>
   </div>
 </div>
 <div class='tags'>
@@ -132,6 +140,18 @@ loaded plugin.</p>
 </div>
   </div>
 </div>
+      <h2>Constructor Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='constructor-dynamic'>
+      #
+(void)
+<b>constructor</b><span>(name)</span>
+      <br>
+    </p>
+    
+  </div>
+</div>
       <h2>Instance Method Details</h2>
       <div class='methods'>
   <div class='method_details'>
@@ -175,7 +195,7 @@ provided will be forwarded as arguments to the function.</p>
 </div>
     </div>
     <div id='footer'>
-  November 29, 14 11:31:04 by
+  November 30, 14 21:06:10 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
