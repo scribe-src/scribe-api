@@ -1,5 +1,6 @@
 DIST_FILES =               \
   dist/scribe.js           \
+  dist/shims.js            \
   dist/scribe/mixins/*.js  \
   dist/scribe/app.js       \
   dist/scribe/platform.js  \
