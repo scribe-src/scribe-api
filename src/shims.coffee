@@ -26,13 +26,16 @@ openOriginal = global.open
 
 # shim the global window.open() function:
 # @nodoc
-global.open ?= (url, name='', opts={}) ->
+global.open = (url, name='', opts={}) ->
   # Ensure this is not a sibling reference like _self, _parent,
   # _opener, or _top
   if (Scribe.Window.current and (name is "_self" or
-       (name.charAt(0) is "_" and window[name.slice(1)] instanceof Window)))
+       (name.charAt(0) is "_" and global[name.slice(1)] instanceof global.Window)))
     # run the original open() method on any arguments passed
-    openOriginal.apply global, arguments
+    if openOriginal?
+      openOriginal.apply global, arguments
+    else
+      global[name.slice(1)].location = url
   else
     opts = params(opts) if typeof opts is "string"
     opts.url = url
