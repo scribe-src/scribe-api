@@ -26,6 +26,13 @@ class Scribe.Engine
   #   WebView inside this Window.
   jsGlobal: null
 
+  # Broadcast a message to all alive Engines
+  #
+  # @param message [String] the message to send to all Engines
+  @broadcastMessage: (message) ->
+    @_broadcastMessage(message)
+
+
   # Evaluates the given `jsCode` in the context of the Engine
   #
   # @param jsCode [String] the Javascript to execute

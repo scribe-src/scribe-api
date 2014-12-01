@@ -26,12 +26,6 @@ class Scribe.Window
   #
   @current: null
 
-  # Broadcast a message to all alive Windows
-  #
-  # @param message [String] the message to send to all Windows
-  @broadcastMessage: (message) ->
-    @_broadcastMessage(message)
-
   # Creates and returns a new instance of `Scribe.Window`
   #
   # @param opts [Object] the options for Scribe.Window's constructor
@@ -111,6 +105,9 @@ class Scribe.Window
       @_nativeObject = opts.nativeObject
     else
       @_createWindow(opts)
+
+    if opts.url?
+      @navigateToURL(opts.url)
 
   # Makes the Window visible and brings it to the front
   show: ->
